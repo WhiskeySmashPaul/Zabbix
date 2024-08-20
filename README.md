@@ -7,4 +7,9 @@ This repository is dedicated to templates that are created by WhiskeySmashPaul.
 - Configure the template according to the configuration requirements
 - Configure a host with [template](https://www.zabbix.com/documentation/current/manual/config/templates/template)
 
-## Templates
+## [Templates](https://github.com/WhiskeySmashPaul/Zabbix/tree/main/Templates)
+
+### Storage Devices
+* [Quantum](https://github.com/WhiskeySmashPaul/Zabbix/tree/main/Templates/Quantum)
+* *[Scalar i3-i6](https://github.com/WhiskeySmashPaul/Zabbix/tree/main/Templates/Quantum/Scalar%20i3-i6)
+  
