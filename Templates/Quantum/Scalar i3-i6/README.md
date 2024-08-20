@@ -7,6 +7,23 @@ This repository contains a Zabbix template for monitoring Quantum Scalar i3 or i
 ## Author
 WhiskeySmashPaul
 
+## Table of Contents
+- [Introduction](#introduction)
+- [Features](#features)
+- [Requirements](#requirements)
+- [Installation](#installation)
+  - [Importing the Template](#importing-the-template)
+  - [Configuring SNMP](#configuring-snmp)
+- [Items Collected](#items-collected)
+  - [Item Prototypes](#item-prototypes)
+- [Triggers](#triggers)
+  - [Trigger Prototypes](#trigger-prototypes)
+- [Macros Used](#macros-used)
+- [Value Mapping](#value-mapping)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+  
 ## Features
 
 - **SNMP Monitoring**: The template utilizes SNMP to monitor various aspects of the Quantum Scalar i3/i6 tape libraries.
