@@ -10,6 +10,6 @@ This repository is dedicated to templates that are created by WhiskeySmashPaul.
 ## [Templates](https://github.com/WhiskeySmashPaul/Zabbix/tree/main/Templates)
 
 ### Storage Devices
-* [Quantum](https://github.com/WhiskeySmashPaul/Zabbix/tree/main/Templates/Quantum)
-* *[Scalar i3-i6](https://github.com/WhiskeySmashPaul/Zabbix/tree/main/Templates/Quantum/Scalar%20i3-i6)
+#### [Quantum](https://github.com/WhiskeySmashPaul/Zabbix/tree/main/Templates/Quantum)
+* [Scalar i3-i6](https://github.com/WhiskeySmashPaul/Zabbix/tree/main/Templates/Quantum/Scalar%20i3-i6)
   
