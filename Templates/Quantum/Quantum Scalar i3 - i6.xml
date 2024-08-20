@@ -1,0 +1,3089 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>7.0</version>
+    <template_groups>
+        <template_group>
+            <uuid>7df96b18c230490a9a0a9e2307226338</uuid>
+            <name>Templates</name>
+        </template_group>
+    </template_groups>
+    <templates>
+        <template>
+            <uuid>3f5174da11794566ad294dca39229a00</uuid>
+            <template>Quantum i6</template>
+            <name>QUANTUM i6</name>
+            <description>Created By Sean Bradley's SNMP2ZABBIX.py at https://github.com/Sean-Bradley/SNMP2ZABBIX</description>
+            <groups>
+                <group>
+                    <name>Templates</name>
+                </group>
+            </groups>
+            <items>
+                <item>
+                    <uuid>ba3531c6cf424aaaa4141cd7b6a697cb</uuid>
+                    <name>Quantum_i6_aggregatedIEAreaStatus</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>SNMPv2-SMI::enterprises.3697.1.10.15.5.60.3</snmp_oid>
+                    <key>QUANTUM-MIDRANGE-TAPE-LIBRARY-MIB.aggregatedIEAreaStatus</key>
+                    <history>7d</history>
+                    <value_type>FLOAT</value_type>
+                    <trends>0</trends>
+                    <description>Physical library's overall insert/eject area access status.</description>
+                    <triggers>
+                        <trigger>
+                            <uuid>0de61f8174df42f983eb92b3c35d41c2</uuid>
+                            <expression>last(/Quantum i6/QUANTUM-MIDRANGE-TAPE-LIBRARY-MIB.aggregatedIEAreaStatus)=2</expression>
+                            <name>IE Area Access Issue Detected</name>
+                            <priority>WARNING</priority>
+                            <description>This trigger activates when an issue is detected in the Import/Export (IE) area access status.</description>
+                        </trigger>
+                    </triggers>
+                </item>
+                <item>
+                    <uuid>c99ad9af0e1a4e5f8c2be811348014bd</uuid>
+                    <name>Quantum_i6_aggregatedMagazineStatus</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>SNMPv2-SMI::enterprises.3697.1.10.15.5.60.2</snmp_oid>
+                    <key>QUANTUM-MIDRANGE-TAPE-LIBRARY-MIB.aggregatedMagazineStatus</key>
+                    <history>7d</history>
+                    <value_type>FLOAT</value_type>
+                    <trends>0</trends>
+                    <description>Physical library's overall magazine presence status.</description>
+                    <triggers>
+                        <trigger>
+                            <uuid>e6aaa1c8fc37456fbafba2badaf356c6</uuid>
+                            <expression>last(/Quantum i6/QUANTUM-MIDRANGE-TAPE-LIBRARY-MIB.aggregatedMagazineStatus)=2</expression>
+                            <name>Magazine Access Issue Detected</name>
+                            <priority>WARNING</priority>
+                            <description>This trigger activates when an issue is detected with the magazine access status.</description>
+                        </trigger>
+                    </triggers>
+                </item>
+                <item>
+                    <uuid>2772225af5db443ea60d3835d4074dfc</uuid>
+                    <name>Quantum_i6_driveRASStatus</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>SNMPv2-SMI::enterprises.3697.1.10.15.5.50.2</snmp_oid>
+                    <key>QUANTUM-MIDRANGE-TAPE-LIBRARY-MIB.driveRASStatus</key>
+                    <history>7d</history>
+                    <value_type>FLOAT</value_type>
+                    <trends>0</trends>
+                    <description>Indicates overall library drive status.</description>
+                    <valuemap>
+                        <name>RASSubSystemStatus</name>
+                    </valuemap>
+                    <triggers>
+                        <trigger>
+                            <uuid>c6d130e6235c4c8eb614b51c69b8396c</uuid>
+                            <expression>last(/Quantum i6/QUANTUM-MIDRANGE-TAPE-LIBRARY-MIB.driveRASStatus)=3</expression>
+                            <name>Drive RAS Status Warning Detected</name>
+                            <priority>AVERAGE</priority>
+                            <description>This trigger activates when a drive is in a warning state according to its RAS status.</description>
+                        </trigger>
+                    </triggers>
+                </item>
+                <item>
+                    <uuid>de4defd70b0c4348b5edb77e71306907</uuid>
+                    <name>Quantum_i6_libraryCleaningTapeCount</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>SNMPv2-SMI::enterprises.3697.1.10.15.5.60.5.2</snmp_oid>
+                    <key>QUANTUM-MIDRANGE-TAPE-LIBRARY-MIB.libraryCleaningTapeCount</key>
+                    <history>7d</history>
+                    <value_type>FLOAT</value_type>
+                    <trends>0</trends>
+                    <description>Total number of library configured cleaning tapes.</description>
+                    <triggers>
+                        <trigger>
+                            <uuid>ca83d0311e8a43b1a9689fa306338c70</uuid>
+                            <expression>last(/Quantum i6/QUANTUM-MIDRANGE-TAPE-LIBRARY-MIB.libraryCleaningTapeCount)&lt;&quot;{$MinCleaningTapeCount}&quot;</expression>
+                            <name>Low Cleaning Tape Count Detected</name>
+                            <priority>WARNING</priority>
+                            <description>This trigger activates when the number of cleaning tapes falls below the defined threshold.</description>
+                        </trigger>
+                    </triggers>
+                </item>
+                <item>
+                    <uuid>bc8a349746a84d429d99cdcd8c4b4499</uuid>
+                    <name>Quantum_i6_libraryCleanSlotCount</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>SNMPv2-SMI::enterprises.3697.1.10.15.5.60.4.2</snmp_oid>
+                    <key>QUANTUM-MIDRANGE-TAPE-LIBRARY-MIB.libraryCleanSlotCount</key>
+                    <history>7d</history>
+                    <value_type>FLOAT</value_type>
+                    <trends>0</trends>
+                    <description>Number of storage slots configured as cleaning slots.</description>
+                </item>
+                <item>
+                    <uuid>7d39b0ae30204702a8202a5b803e0ee8</uuid>
+                    <name>Quantum_i6_libraryDescription</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>SNMPv2-SMI::enterprises.3697.1.10.15.5.6</snmp_oid>
+                    <key>QUANTUM-MIDRANGE-TAPE-LIBRARY-MIB.libraryDescription</key>
+                    <history>7d</history>
+                    <value_type>CHAR</value_type>
+                    <trends>0</trends>
+                    <description>Description of the library, i.e. 'Two module Scalar i3'</description>
+                </item>
+                <item>
+                    <uuid>33f5c1102de34dd2bfc64a9b8c8dbdb4</uuid>
+                    <name>Quantum_i6_libraryFirmwareVersion</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>SNMPv2-SMI::enterprises.3697.1.10.15.5.9</snmp_oid>
+                    <key>QUANTUM-MIDRANGE-TAPE-LIBRARY-MIB.libraryFirmwareVersion</key>
+                    <history>7d</history>
+                    <value_type>CHAR</value_type>
+                    <trends>0</trends>
+                    <description>Library firmware version.</description>
+                </item>
+                <item>
+                    <uuid>098c79cab797445693379f08ea8afeef</uuid>
+                    <name>Quantum_i6_libraryGlobalStatus</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>SNMPv2-SMI::enterprises.3697.1.10.15.5.10</snmp_oid>
+                    <key>QUANTUM-MIDRANGE-TAPE-LIBRARY-MIB.libraryGlobalStatus</key>
+                    <history>7d</history>
+                    <value_type>FLOAT</value_type>
+                    <trends>0</trends>
+                    <description>Current RAS status of the entire library.</description>
+                    <triggers>
+                        <trigger>
+                            <uuid>cad7d0f8ebe448a4b602fa941e3b473a</uuid>
+                            <expression>last(/Quantum i6/QUANTUM-MIDRANGE-TAPE-LIBRARY-MIB.libraryGlobalStatus)=1</expression>
+                            <name>Library Global Status Issue Detected</name>
+                            <priority>HIGH</priority>
+                            <description>This trigger activates when a critical issue is detected in the overall status of the library.</description>
+                        </trigger>
+                    </triggers>
+                </item>
+                <item>
+                    <uuid>3561c57f76f34710a187a345b6ec1f3d</uuid>
+                    <name>Quantum_i6_libraryHumiditySensorCount</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>SNMPv2-SMI::enterprises.3697.1.10.15.5.120.1.1</snmp_oid>
+                    <key>QUANTUM-MIDRANGE-TAPE-LIBRARY-MIB.libraryHumiditySensorCount</key>
+                    <history>7d</history>
+                    <value_type>FLOAT</value_type>
+                    <trends>0</trends>
+                    <description>No description available</description>
+                </item>
+                <item>
+                    <uuid>888adbea23fa45f98130453babfcc071</uuid>
+                    <name>Quantum_i6_libraryIESlotCount</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>SNMPv2-SMI::enterprises.3697.1.10.15.5.60.4.3</snmp_oid>
+                    <key>QUANTUM-MIDRANGE-TAPE-LIBRARY-MIB.libraryIESlotCount</key>
+                    <history>7d</history>
+                    <value_type>FLOAT</value_type>
+                    <trends>0</trends>
+                    <description>Number of configured library insert/eject slots.</description>
+                </item>
+                <item>
+                    <uuid>f5ca4ab00d0149319eee26ceb102c09f</uuid>
+                    <name>Quantum_i6_libraryManagementAccessCount</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>SNMPv2-SMI::enterprises.3697.1.10.15.5.1.1</snmp_oid>
+                    <key>QUANTUM-MIDRANGE-TAPE-LIBRARY-MIB.libraryManagementAccessCount</key>
+                    <history>7d</history>
+                    <value_type>FLOAT</value_type>
+                    <trends>0</trends>
+                    <description>No description available</description>
+                </item>
+                <item>
+                    <uuid>3ebf31b5ab1c4394a690571858aae2ec</uuid>
+                    <name>Quantum_i6_libraryMediaCount</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>SNMPv2-SMI::enterprises.3697.1.10.15.5.60.5.1</snmp_oid>
+                    <key>QUANTUM-MIDRANGE-TAPE-LIBRARY-MIB.libraryMediaCount</key>
+                    <history>7d</history>
+                    <value_type>FLOAT</value_type>
+                    <trends>0</trends>
+                    <description>Total number of media minus any configured cleaning tapes.</description>
+                </item>
+                <item>
+                    <uuid>566f05ad389641ffa9b608840d5aadc5</uuid>
+                    <name>Quantum_i6_libraryModel</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>SNMPv2-SMI::enterprises.3697.1.10.15.5.5</snmp_oid>
+                    <key>QUANTUM-MIDRANGE-TAPE-LIBRARY-MIB.libraryModel</key>
+                    <history>7d</history>
+                    <value_type>CHAR</value_type>
+                    <trends>0</trends>
+                    <description>Library model information, i.e. 'Scalar i3' or 'Scalar i6'</description>
+                </item>
+                <item>
+                    <uuid>b455609d9bc34f49a2e072d63a7e0a75</uuid>
+                    <name>Quantum_i6_libraryName</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>SNMPv2-SMI::enterprises.3697.1.10.15.5.3</snmp_oid>
+                    <key>QUANTUM-MIDRANGE-TAPE-LIBRARY-MIB.libraryName</key>
+                    <history>7d</history>
+                    <value_type>CHAR</value_type>
+                    <trends>0</trends>
+                    <description>Host name (DNS alias) of the tape library.</description>
+                </item>
+                <item>
+                    <uuid>12fdbd8456eb481e947b4549a36a13ca</uuid>
+                    <name>Quantum_i6_libraryPartitionCount</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>SNMPv2-SMI::enterprises.3697.1.10.15.5.70.1</snmp_oid>
+                    <key>QUANTUM-MIDRANGE-TAPE-LIBRARY-MIB.libraryPartitionCount</key>
+                    <history>7d</history>
+                    <value_type>FLOAT</value_type>
+                    <trends>0</trends>
+                    <description>No description available</description>
+                </item>
+                <item>
+                    <uuid>8ba13ff7fa6a41bd8b391fd6ea94fef9</uuid>
+                    <name>Quantum_i6_libraryPhDriveCount</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>SNMPv2-SMI::enterprises.3697.1.10.15.5.80.1</snmp_oid>
+                    <key>QUANTUM-MIDRANGE-TAPE-LIBRARY-MIB.libraryPhDriveCount</key>
+                    <history>7d</history>
+                    <value_type>FLOAT</value_type>
+                    <trends>0</trends>
+                    <description>No description available</description>
+                </item>
+                <item>
+                    <uuid>274920224d294c76ab817c258c9c6233</uuid>
+                    <name>Quantum_i6_libraryProductName</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>SNMPv2-SMI::enterprises.3697.1.10.15.5.7</snmp_oid>
+                    <key>QUANTUM-MIDRANGE-TAPE-LIBRARY-MIB.libraryProductName</key>
+                    <history>7d</history>
+                    <value_type>CHAR</value_type>
+                    <trends>0</trends>
+                    <description>Product ID/name of the library, i.e. 'Scalar i3-i6'</description>
+                </item>
+                <item>
+                    <uuid>be860874781d47c2b4c644cfcbdcc300</uuid>
+                    <name>Quantum_i6_libraryPSCount</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>SNMPv2-SMI::enterprises.3697.1.10.15.5.100.1</snmp_oid>
+                    <key>QUANTUM-MIDRANGE-TAPE-LIBRARY-MIB.libraryPSCount</key>
+                    <history>7d</history>
+                    <value_type>FLOAT</value_type>
+                    <trends>0</trends>
+                    <description>No description available</description>
+                    <triggers>
+                        <trigger>
+                            <uuid>367ca589cbae4212aac5a3285aa2f26e</uuid>
+                            <expression>last(/Quantum i6/QUANTUM-MIDRANGE-TAPE-LIBRARY-MIB.libraryPSCount)&lt;&quot;{$MinPSCount}&quot;</expression>
+                            <name>Power Supply Count Issue Detected</name>
+                            <priority>WARNING</priority>
+                            <description>This trigger activates when the number of power supplies falls below the defined threshold.</description>
+                        </trigger>
+                    </triggers>
+                </item>
+                <item>
+                    <uuid>dd553826499442159bfdd53f87338105</uuid>
+                    <name>Quantum_i6_libraryRASStatus</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>SNMPv2-SMI::enterprises.3697.1.10.15.5.50.1</snmp_oid>
+                    <key>QUANTUM-MIDRANGE-TAPE-LIBRARY-MIB.libraryRASStatus</key>
+                    <history>7d</history>
+                    <value_type>FLOAT</value_type>
+                    <trends>0</trends>
+                    <description>Indicates overall library control subsystem status.</description>
+                    <valuemap>
+                        <name>RASSubSystemStatus</name>
+                    </valuemap>
+                </item>
+                <item>
+                    <uuid>dc7bfacc780c4e45854359647af4823c</uuid>
+                    <name>Quantum_i6_libraryRasTicketCount</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>SNMPv2-SMI::enterprises.3697.1.10.15.5.50.10.1</snmp_oid>
+                    <key>QUANTUM-MIDRANGE-TAPE-LIBRARY-MIB.libraryRasTicketCount</key>
+                    <history>7d</history>
+                    <value_type>FLOAT</value_type>
+                    <trends>0</trends>
+                    <units>ticket(s)</units>
+                    <description>Number of open RAS event tickets.</description>
+                </item>
+                <item>
+                    <uuid>77a464fc73564204bd018d51050f62b9</uuid>
+                    <name>Quantum_i6_librarySerialNumber</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>SNMPv2-SMI::enterprises.3697.1.10.15.5.8</snmp_oid>
+                    <key>QUANTUM-MIDRANGE-TAPE-LIBRARY-MIB.librarySerialNumber</key>
+                    <history>7d</history>
+                    <value_type>CHAR</value_type>
+                    <trends>0</trends>
+                    <description>Library serial number.</description>
+                </item>
+                <item>
+                    <uuid>1fab845f7cb6471aa5a5d4d7a06d95b2</uuid>
+                    <name>Quantum_i6_libraryStorageSlotCount</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>SNMPv2-SMI::enterprises.3697.1.10.15.5.60.4.1</snmp_oid>
+                    <key>QUANTUM-MIDRANGE-TAPE-LIBRARY-MIB.libraryStorageSlotCount</key>
+                    <history>7d</history>
+                    <value_type>FLOAT</value_type>
+                    <trends>0</trends>
+                    <description>Number of overall library storage slots.</description>
+                </item>
+                <item>
+                    <uuid>535fcd83665f4a10af1c3005e2f22b32</uuid>
+                    <name>Quantum_i6_libraryTemperatureSensorCount</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>SNMPv2-SMI::enterprises.3697.1.10.15.5.120.2.1</snmp_oid>
+                    <key>QUANTUM-MIDRANGE-TAPE-LIBRARY-MIB.libraryTemperatureSensorCount</key>
+                    <history>7d</history>
+                    <value_type>FLOAT</value_type>
+                    <trends>0</trends>
+                    <description>No description available</description>
+                </item>
+                <item>
+                    <uuid>90354aef0f714ce39a330777714cbad9</uuid>
+                    <name>Quantum_i6_libraryURL</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>SNMPv2-SMI::enterprises.3697.1.10.15.5.2</snmp_oid>
+                    <key>QUANTUM-MIDRANGE-TAPE-LIBRARY-MIB.libraryURL</key>
+                    <history>7d</history>
+                    <value_type>TEXT</value_type>
+                    <trends>0</trends>
+                    <description>URL of library alias/DNS name of the library's management application.</description>
+                </item>
+                <item>
+                    <uuid>7112ec2bf8f74e428464ad95feb1a0b8</uuid>
+                    <name>Quantum_i6_libraryVendor</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>SNMPv2-SMI::enterprises.3697.1.10.15.5.4</snmp_oid>
+                    <key>QUANTUM-MIDRANGE-TAPE-LIBRARY-MIB.libraryVendor</key>
+                    <history>7d</history>
+                    <value_type>CHAR</value_type>
+                    <trends>0</trends>
+                    <description>Library vendor identification.</description>
+                </item>
+                <item>
+                    <uuid>065fc286d7d849289636c96c3b81b228</uuid>
+                    <name>Quantum_i6_libraryVoltageSensorCount</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>SNMPv2-SMI::enterprises.3697.1.10.15.5.110.1</snmp_oid>
+                    <key>QUANTUM-MIDRANGE-TAPE-LIBRARY-MIB.libraryVoltageSensorCount</key>
+                    <history>7d</history>
+                    <value_type>FLOAT</value_type>
+                    <trends>0</trends>
+                    <description>No description available</description>
+                </item>
+                <item>
+                    <uuid>a28cab5537ab4bfea3d4a01b07bbe65f</uuid>
+                    <name>Quantum_i6_managementInterface</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>SNMPv2-SMI::enterprises.3697.1.10.15.5.1</snmp_oid>
+                    <key>QUANTUM-MIDRANGE-TAPE-LIBRARY-MIB.managementInterface</key>
+                    <history>7d</history>
+                    <value_type>CHAR</value_type>
+                    <trends>0</trends>
+                    <description>No description available</description>
+                </item>
+                <item>
+                    <uuid>77396d9dfe074774ade9372af815c108</uuid>
+                    <name>Quantum_i6_mediaRASStatus</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>SNMPv2-SMI::enterprises.3697.1.10.15.5.50.3</snmp_oid>
+                    <key>QUANTUM-MIDRANGE-TAPE-LIBRARY-MIB.mediaRASStatus</key>
+                    <history>7d</history>
+                    <value_type>FLOAT</value_type>
+                    <trends>0</trends>
+                    <description>Indicates overall library media status.</description>
+                    <valuemap>
+                        <name>RASSubSystemStatus</name>
+                    </valuemap>
+                    <triggers>
+                        <trigger>
+                            <uuid>0bf11c308ad6409d9fd462dd8e3859a1</uuid>
+                            <expression>last(/Quantum i6/QUANTUM-MIDRANGE-TAPE-LIBRARY-MIB.mediaRASStatus)=3</expression>
+                            <name>Media RAS Status Warning Detected</name>
+                            <priority>AVERAGE</priority>
+                            <description>This trigger activates when the media RAS status indicates a warning condition.</description>
+                        </trigger>
+                    </triggers>
+                </item>
+                <item>
+                    <uuid>2432cf1c525a4f7bbe469be58be688f8</uuid>
+                    <name>Quantum_i6_physicalLibraryState</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>SNMPv2-SMI::enterprises.3697.1.10.15.5.60.1</snmp_oid>
+                    <key>QUANTUM-MIDRANGE-TAPE-LIBRARY-MIB.physicalLibraryState</key>
+                    <history>7d</history>
+                    <value_type>FLOAT</value_type>
+                    <trends>0</trends>
+                    <description>Physical library's overall robotics readiness status.</description>
+                </item>
+            </items>
+            <discovery_rules>
+                <discovery_rule>
+                    <uuid>61e05ca43e19483aa7b5781539f2d103</uuid>
+                    <name>libraryManagementTable</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>walk[.1.3.6.1.4.1.3697.1.10.15.5.1.2]</snmp_oid>
+                    <key>.1.3.6.1.4.1.3697.1.10.15.5.1.2</key>
+                    <delay>3600</delay>
+                    <lifetime>30d</lifetime>
+                    <enabled_lifetime_type>DISABLE_NEVER</enabled_lifetime_type>
+                    <description>A table of all management access interfaces and protocols.</description>
+                    <item_prototypes>
+                        <item_prototype>
+                            <uuid>3c8ecefe1bac49d689baac01b9fed954</uuid>
+                            <name>managementInterfaceAccessType[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.1.2.1.5.{#SNMPINDEX}</snmp_oid>
+                            <key>managementInterfaceAccessType.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>FLOAT</value_type>
+                            <trends>0</trends>
+                            <description>Management interface protocol access type.</description>
+                            <valuemap>
+                                <name>RASTicketSubSystem</name>
+                            </valuemap>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                            <trigger_prototypes>
+                                <trigger_prototype>
+                                    <uuid>45addca1968a469cb65f9a8c7bc1d8b2</uuid>
+                                    <expression>last(/Quantum i6/managementInterfaceAccessType.[{#SNMPINDEX}])&lt;&gt;&quot;{$ExpectedAccessType}&quot;</expression>
+                                    <name>Management Interface Access Type [{#SNMPINDEX}]: IP Address Change</name>
+                                    <priority>INFO</priority>
+                                    <description>This trigger alerts if the management IP address changes, indicating a potential configuration change or security issue.</description>
+                                </trigger_prototype>
+                                <trigger_prototype>
+                                    <uuid>f59e92dca9ba4e90af509903fb7079ef</uuid>
+                                    <expression>last(/Quantum i6/managementInterfaceAccessType.[{#SNMPINDEX}])&lt;&gt;&quot;{$ExpectedAccessType}&quot;</expression>
+                                    <name>Management Interface Access Type [{#SNMPINDEX}]: Unexpected Access Type</name>
+                                    <priority>WARNING</priority>
+                                    <description>This trigger will alert you if the management interface access type changes from the expected type (e.g., if it changes from HTTPS to HTTP).</description>
+                                </trigger_prototype>
+                            </trigger_prototypes>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>5cc7e69a04cf4cf6acc6e0382ef880ab</uuid>
+                            <name>managementInterfaceAddress[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.1.2.1.3.{#SNMPINDEX}</snmp_oid>
+                            <key>managementInterfaceAddress.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>TEXT</value_type>
+                            <trends>0</trends>
+                            <description>Managment interface IP address.</description>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>f933274daeb149db8c7340ca56db423a</uuid>
+                            <name>managementInterfaceProtocol[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.1.2.1.4.{#SNMPINDEX}</snmp_oid>
+                            <key>managementInterfaceProtocol.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>FLOAT</value_type>
+                            <trends>0</trends>
+                            <description>Managment interface protocol and version.</description>
+                            <valuemap>
+                                <name>NetworkProtocol</name>
+                            </valuemap>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                            <trigger_prototypes>
+                                <trigger_prototype>
+                                    <uuid>f402f234b57d4472afcf078c837c0fb8</uuid>
+                                    <expression>last(/Quantum i6/managementInterfaceProtocol.[{#SNMPINDEX}])&lt;&gt;&quot;{$ExpectedProtocol}&quot;</expression>
+                                    <name>Management Interface Access Type [{#SNMPINDEX}]: Protocol Mismatch</name>
+                                    <priority>INFO</priority>
+                                    <description>This trigger alerts you if the protocol changes from the expected version, such as an unauthorized switch from IPv4 to IPv6.</description>
+                                </trigger_prototype>
+                            </trigger_prototypes>
+                        </item_prototype>
+                    </item_prototypes>
+                    <timeout>10</timeout>
+                    <preprocessing>
+                        <step>
+                            <type>JAVASCRIPT</type>
+                            <parameters>
+                                <parameter>var results = value.split(&quot;\n&quot;); // Split input by new lines to process each line individually
+var dataArray = []; // Array to hold each JSON object
+var seenIndices = {}; // Track seen indices to avoid duplicates
+
+for (var i = 0; i &lt; results.length; i++) {
+    var parts = results[i].split(&quot; = &quot;); // Split each line into OID and value parts
+    if (parts.length &gt;= 2) {
+        var oid = parts[0].trim(); // Extract the OID part and trim any whitespace
+        var statusText = parts[1].trim(); // Extract the status text
+
+        // Extract the index from the OID
+        var match = oid.match(/\.(\d+)$/); // Match the index at the end of the OID
+        if (match) {
+            var index = match[1]; // Captured index
+
+            // Check if this index has already been processed
+            if (seenIndices[index]) {
+                continue; // Skip if this index is already processed
+            }
+
+            // Perform the status replacement
+            var updatedStatus = statusText.replace(/\s*\(.*?\)/, &quot;_REPLACED_&quot;); // Replace status text
+
+            // Add the JSON object to the array
+            dataArray.push({
+                &quot;{#SNMPINDEX}&quot;: index, // Use the captured index as {#SNMPINDEX}
+                &quot;{#STATUS}&quot;: updatedStatus
+            });
+
+            // Mark this index as processed
+            seenIndices[index] = true;
+        }
+    }
+}
+
+// Return the array as a JSON object for Zabbix discovery
+return JSON.stringify({
+    data: dataArray
+});
+</parameter>
+                            </parameters>
+                        </step>
+                    </preprocessing>
+                </discovery_rule>
+                <discovery_rule>
+                    <uuid>732b3d6ab4ea41788a58ed673e9211b6</uuid>
+                    <name>rasTicketTable</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>walk[.1.3.6.1.4.1.3697.1.10.15.5.50.10.2]</snmp_oid>
+                    <key>.1.3.6.1.4.1.3697.1.10.15.5.50.10.2</key>
+                    <delay>3600</delay>
+                    <lifetime>30d</lifetime>
+                    <enabled_lifetime_type>DISABLE_NEVER</enabled_lifetime_type>
+                    <description>A table of all open RAS event tickets in the library.</description>
+                    <item_prototypes>
+                        <item_prototype>
+                            <uuid>3e924dbc65314f0da4596bb240284495</uuid>
+                            <name>eventTicketDateTime[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.50.10.2.1.3.{#SNMPINDEX}</snmp_oid>
+                            <key>eventTicketDateTime.[{#SNMPINDEX}]</key>
+                            <delay>5m</delay>
+                            <history>2w</history>
+                            <value_type>TEXT</value_type>
+                            <trends>0</trends>
+                            <description>RAS Ticket Creation Date and Time.</description>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>4e940e597df14f119683227c370d6ccb</uuid>
+                            <name>eventTicketDescription[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.50.10.2.1.6.{#SNMPINDEX}</snmp_oid>
+                            <key>eventTicketDescription.[{#SNMPINDEX}]</key>
+                            <delay>5m</delay>
+                            <history>2w</history>
+                            <value_type>TEXT</value_type>
+                            <trends>0</trends>
+                            <description>RAS Ticket Event Description.</description>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>8885ed04e72b49668a7f4937caf426df</uuid>
+                            <name>eventTicketDetailCount[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.50.10.2.1.9.{#SNMPINDEX}</snmp_oid>
+                            <key>eventTicketDetailCount.[{#SNMPINDEX}]</key>
+                            <delay>5m</delay>
+                            <history>2w</history>
+                            <value_type>FLOAT</value_type>
+                            <trends>0</trends>
+                            <units>reason detail entries</units>
+                            <description>Number of reason detail entries.</description>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>27f0ad49e8764e44b2309b4c11e7a580</uuid>
+                            <name>eventTicketDetailKey[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.50.10.3.1.2.{#SNMPINDEX}</snmp_oid>
+                            <key>eventTicketDetailKey.[{#SNMPINDEX}]</key>
+                            <delay>5m</delay>
+                            <value_type>TEXT</value_type>
+                            <trends>0</trends>
+                            <status>DISABLED</status>
+                            <discover>NO_DISCOVER</discover>
+                            <description>RAS Event Ticket Detail Key name information.</description>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>f15f34afc89041d689ae9bd31cc0f62b</uuid>
+                            <name>eventTicketDetailValue[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.50.10.3.1.3.{#SNMPINDEX}</snmp_oid>
+                            <key>eventTicketDetailValue.[{#SNMPINDEX}]</key>
+                            <delay>5m</delay>
+                            <value_type>TEXT</value_type>
+                            <trends>0</trends>
+                            <status>DISABLED</status>
+                            <discover>NO_DISCOVER</discover>
+                            <description>RAS Event Ticket Detail Value data information.</description>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>696c89bb57024189b50b5b1daea272f9</uuid>
+                            <name>eventTicketEventCode[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.50.10.2.1.4.{#SNMPINDEX}</snmp_oid>
+                            <key>eventTicketEventCode.[{#SNMPINDEX}]</key>
+                            <delay>5m</delay>
+                            <history>2w</history>
+                            <value_type>TEXT</value_type>
+                            <trends>0</trends>
+                            <description>RAS Ticket Event Code.</description>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>1f734774732847fe8627950cafb0c871</uuid>
+                            <name>eventTicketId[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.50.10.2.1.2.{#SNMPINDEX}</snmp_oid>
+                            <key>eventTicketId.[{#SNMPINDEX}]</key>
+                            <delay>5m</delay>
+                            <history>2w</history>
+                            <value_type>FLOAT</value_type>
+                            <trends>0</trends>
+                            <description>RAS Ticket Event Tracking ID.</description>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>4636303a99764a5987f5ba735c1f87cf</uuid>
+                            <name>eventTicketName[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.50.10.2.1.5.{#SNMPINDEX}</snmp_oid>
+                            <key>eventTicketName.[{#SNMPINDEX}]</key>
+                            <delay>5m</delay>
+                            <history>2w</history>
+                            <value_type>TEXT</value_type>
+                            <trends>0</trends>
+                            <description>RAS Ticket Event Name.</description>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>c6c7097bacc2432a8616ea053bb47002</uuid>
+                            <name>eventTicketSeverity[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.50.10.2.1.7.{#SNMPINDEX}</snmp_oid>
+                            <key>eventTicketSeverity.[{#SNMPINDEX}]</key>
+                            <delay>5m</delay>
+                            <history>2w</history>
+                            <value_type>FLOAT</value_type>
+                            <trends>0</trends>
+                            <description>RAS Ticket Event Severity.</description>
+                            <valuemap>
+                                <name>RASTicketSeverity</name>
+                            </valuemap>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                            <trigger_prototypes>
+                                <trigger_prototype>
+                                    <uuid>b34028097a894a609aeeddad679c7c11</uuid>
+                                    <expression>last(/Quantum i6/eventTicketSeverity.[{#SNMPINDEX}])=4</expression>
+                                    <recovery_mode>RECOVERY_EXPRESSION</recovery_mode>
+                                    <recovery_expression>last(/Quantum i6/eventTicketSeverity.[{#SNMPINDEX}])&lt;&gt;4</recovery_expression>
+                                    <name>Attention RAS Ticket Opened: Ticket {#SNMPINDEX}</name>
+                                    <priority>AVERAGE</priority>
+                                    <description>This trigger activates when a critical RAS ticket is opened. The alert will automatically resolve when the ticket is no longer critical or has been cleared.</description>
+                                </trigger_prototype>
+                                <trigger_prototype>
+                                    <uuid>5e3dc50ef2984b45a6efe03b1a14ec99</uuid>
+                                    <expression>last(/Quantum i6/eventTicketSeverity.[{#SNMPINDEX}])=1</expression>
+                                    <recovery_mode>RECOVERY_EXPRESSION</recovery_mode>
+                                    <recovery_expression>last(/Quantum i6/eventTicketSeverity.[{#SNMPINDEX}])&lt;&gt;1</recovery_expression>
+                                    <name>Critical RAS Ticket Opened: Ticket {#SNMPINDEX}</name>
+                                    <priority>DISASTER</priority>
+                                    <description>This trigger activates when a critical RAS ticket is opened. The alert will automatically resolve when the ticket is no longer critical or has been cleared.</description>
+                                </trigger_prototype>
+                                <trigger_prototype>
+                                    <uuid>3730176ec05a42b78db27ca323cf8536</uuid>
+                                    <expression>last(/Quantum i6/eventTicketSeverity.[{#SNMPINDEX}])=2</expression>
+                                    <recovery_mode>RECOVERY_EXPRESSION</recovery_mode>
+                                    <recovery_expression>last(/Quantum i6/eventTicketSeverity.[{#SNMPINDEX}])&lt;&gt;2</recovery_expression>
+                                    <name>Degraded RAS Ticket Opened: Ticket {#SNMPINDEX}</name>
+                                    <priority>HIGH</priority>
+                                    <description>This trigger activates when a degraded RAS ticket is opened. The alert will automatically resolve when the ticket is no longer critical or has been cleared.</description>
+                                </trigger_prototype>
+                                <trigger_prototype>
+                                    <uuid>4d78554ac79c463fb81b8472ecdfa4f3</uuid>
+                                    <expression>last(/Quantum i6/eventTicketSeverity.[{#SNMPINDEX}])=5</expression>
+                                    <recovery_mode>RECOVERY_EXPRESSION</recovery_mode>
+                                    <recovery_expression>last(/Quantum i6/eventTicketSeverity.[{#SNMPINDEX}])&lt;&gt;5</recovery_expression>
+                                    <name>Informational RAS Ticket Opened: Ticket {#SNMPINDEX}</name>
+                                    <priority>INFO</priority>
+                                    <description>This trigger activates when an informational RAS ticket is opened. The alert will automatically resolve when the ticket is no longer critical or has been cleared.</description>
+                                </trigger_prototype>
+                                <trigger_prototype>
+                                    <uuid>c68a1cf5adc24be69cd6aa5deb000223</uuid>
+                                    <expression>last(/Quantum i6/eventTicketSeverity.[{#SNMPINDEX}])=3</expression>
+                                    <recovery_mode>RECOVERY_EXPRESSION</recovery_mode>
+                                    <recovery_expression>last(/Quantum i6/eventTicketSeverity.[{#SNMPINDEX}])&lt;&gt;3</recovery_expression>
+                                    <name>Warning RAS Ticket Opened: Ticket {#SNMPINDEX}</name>
+                                    <priority>WARNING</priority>
+                                    <description>This trigger activates when a warning RAS ticket is opened. The alert will automatically resolve when the subsystem is no longer reporting an issue or the ticket is cleared.</description>
+                                </trigger_prototype>
+                            </trigger_prototypes>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>5aa0905c90eb45159d87aceb2063c515</uuid>
+                            <name>eventTicketSubSystem[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.50.10.2.1.8.{#SNMPINDEX}</snmp_oid>
+                            <key>eventTicketSubSystem.[{#SNMPINDEX}]</key>
+                            <delay>5m</delay>
+                            <history>2w</history>
+                            <value_type>FLOAT</value_type>
+                            <trends>0</trends>
+                            <description>RAS Ticket SubSystem Association.</description>
+                            <valuemap>
+                                <name>RASTicketSubSystem</name>
+                            </valuemap>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                            <trigger_prototypes>
+                                <trigger_prototype>
+                                    <uuid>8ba55f552a0340c08f388305fd19f3d7</uuid>
+                                    <expression>last(/Quantum i6/eventTicketSubSystem.[{#SNMPINDEX}])=1 or last(/Quantum i6/eventTicketSubSystem.[{#SNMPINDEX}])=2 or last(/Quantum i6/eventTicketSubSystem.[{#SNMPINDEX}])=3</expression>
+                                    <recovery_mode>RECOVERY_EXPRESSION</recovery_mode>
+                                    <recovery_expression>last(/Quantum i6/eventTicketSubSystem.[{#SNMPINDEX}])&lt;&gt;1 and last(/Quantum i6/eventTicketSubSystem.[{#SNMPINDEX}])&lt;&gt;2 and last(/Quantum i6/eventTicketSubSystem.[{#SNMPINDEX}])&lt;&gt;3</recovery_expression>
+                                    <name>RAS Ticket Subsystem Issue: Ticket {#SNMPINDEX}</name>
+                                    <priority>HIGH</priority>
+                                    <description>This trigger activates when a RAS ticket indicates an issue with a critical subsystem such as library, drive, or media. The alert will automatically resolve when the subsystem is no longer reporting an issue or the ticket is cleared.</description>
+                                </trigger_prototype>
+                            </trigger_prototypes>
+                        </item_prototype>
+                    </item_prototypes>
+                    <timeout>10s</timeout>
+                    <preprocessing>
+                        <step>
+                            <type>JAVASCRIPT</type>
+                            <parameters>
+                                <parameter>var results = value.split(&quot;\n&quot;); // Split input by new lines to process each line individually
+var dataArray = []; // Array to hold each JSON object
+var seenIndices = {}; // Track seen indices to avoid duplicates
+
+for (var i = 0; i &lt; results.length; i++) {
+    var parts = results[i].split(&quot; = &quot;); // Split each line into OID and value parts
+    if (parts.length &gt;= 2) {
+        var oid = parts[0].trim(); // Extract the OID part and trim any whitespace
+        var statusText = parts[1].trim(); // Extract the status text
+
+        // Extract the index from the OID
+        var match = oid.match(/\.(\d+)$/); // Match the index at the end of the OID
+        if (match) {
+            var index = match[1]; // Captured index
+
+            // Check if this index has already been processed
+            if (seenIndices[index]) {
+                continue; // Skip if this index is already processed
+            }
+
+            // Perform the status replacement
+            var updatedStatus = statusText.replace(/\s*\(.*?\)/, &quot;_REPLACED_&quot;); // Replace status text
+
+            // Add the JSON object to the array
+            dataArray.push({
+                &quot;{#SNMPINDEX}&quot;: index, // Use the captured index as {#SNMPINDEX}
+                &quot;{#STATUS}&quot;: updatedStatus
+            });
+
+            // Mark this index as processed
+            seenIndices[index] = true;
+        }
+    }
+}
+
+// Return the array as a JSON object for Zabbix discovery
+return JSON.stringify({
+    data: dataArray
+});
+</parameter>
+                            </parameters>
+                        </step>
+                    </preprocessing>
+                </discovery_rule>
+                <discovery_rule>
+                    <uuid>ad49a23e3bb7436c965e8a0dc6157423</uuid>
+                    <name>logicalLibraryTable</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>walk[.1.3.6.1.4.1.3697.1.10.15.5.70.2]</snmp_oid>
+                    <key>.1.3.6.1.4.1.3697.1.10.15.5.70.2</key>
+                    <delay>3600</delay>
+                    <lifetime>30d</lifetime>
+                    <enabled_lifetime_type>DISABLE_NEVER</enabled_lifetime_type>
+                    <description>Logical library information table.</description>
+                    <item_prototypes>
+                        <item_prototype>
+                            <uuid>60f6bac6d9974ff38441e80a646c0250</uuid>
+                            <name>logicalLibraryAutoClean[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.70.2.1.10.{#SNMPINDEX}</snmp_oid>
+                            <key>logicalLibraryAutoClean.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>FLOAT</value_type>
+                            <trends>0</trends>
+                            <description>Partition's automatic drive cleaning support configuration.</description>
+                            <valuemap>
+                                <name>DisabledEnabled</name>
+                            </valuemap>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>ca798ea3badf47c0a1cad650a2904e4d</uuid>
+                            <name>logicalLibraryChangerDeviceAddr[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.70.2.1.17.{#SNMPINDEX}</snmp_oid>
+                            <key>logicalLibraryChangerDeviceAddr.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>FLOAT</value_type>
+                            <trends>0</trends>
+                            <description>First partition medium transport SCSI element address.</description>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>d064f894a5974d7985d41c1a35477518</uuid>
+                            <name>logicalLibraryControl[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.70.2.1.7.{#SNMPINDEX}</snmp_oid>
+                            <key>logicalLibraryControl.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>FLOAT</value_type>
+                            <trends>0</trends>
+                            <description>Partition control path configuration.</description>
+                            <valuemap>
+                                <name>RedundancyConfiguration</name>
+                            </valuemap>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                            <trigger_prototypes>
+                                <trigger_prototype>
+                                    <uuid>3d6664c416894971be1bdae85efa8d2a</uuid>
+                                    <expression>last(/Quantum i6/logicalLibraryControl.[{#SNMPINDEX}])=3</expression>
+                                    <name>Logical Library Degraded on Partition {#SNMPINDEX}</name>
+                                    <priority>AVERAGE</priority>
+                                    <description>This trigger activates when a logical library partition is detected as degraded.</description>
+                                </trigger_prototype>
+                                <trigger_prototype>
+                                    <uuid>bca93b883f354517b07148dcebc6752b</uuid>
+                                    <expression>last(/Quantum i6/logicalLibraryControl.[{#SNMPINDEX}])=4</expression>
+                                    <name>Logical Library Path Failover on Partition {#SNMPINDEX}</name>
+                                    <priority>HIGH</priority>
+                                    <description>This trigger activates when a logical library partition is detected as operating under advanced path failover.</description>
+                                </trigger_prototype>
+                            </trigger_prototypes>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>89dcac9240354f798dbcfc0071a1cf9a</uuid>
+                            <name>logicalLibraryIEElemAddr[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.70.2.1.15.{#SNMPINDEX}</snmp_oid>
+                            <key>logicalLibraryIEElemAddr.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>FLOAT</value_type>
+                            <trends>0</trends>
+                            <description>First partition Insert/Eject SCSI element address.</description>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>36cebf55cb4f4aafa30d4b4399545329</uuid>
+                            <name>logicalLibraryInterface[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.70.2.1.6.{#SNMPINDEX}</snmp_oid>
+                            <key>logicalLibraryInterface.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>FLOAT</value_type>
+                            <trends>0</trends>
+                            <description>Partition control interface method.</description>
+                            <valuemap>
+                                <name>InterfaceMethod</name>
+                            </valuemap>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>8f7aa0b51ab841108ff6db700249b658</uuid>
+                            <name>logicalLibraryMode[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.70.2.1.8.{#SNMPINDEX}</snmp_oid>
+                            <key>logicalLibraryMode.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>FLOAT</value_type>
+                            <trends>0</trends>
+                            <description>Partition online/offline mode.</description>
+                            <valuemap>
+                                <name>DeviceMode</name>
+                            </valuemap>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                            <trigger_prototypes>
+                                <trigger_prototype>
+                                    <uuid>06515b41554943b0af7bde6b45372e05</uuid>
+                                    <expression>last(/Quantum i6/logicalLibraryMode.[{#SNMPINDEX}])=2</expression>
+                                    <name>Logical Library Offline on Partition {#SNMPINDEX}</name>
+                                    <priority>HIGH</priority>
+                                    <description>This trigger activates when a logical library partition is detected as offline.</description>
+                                </trigger_prototype>
+                            </trigger_prototypes>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>a2e30c6829964c2e96a7e3d37a8019cb</uuid>
+                            <name>logicalLibraryModel[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.70.2.1.4.{#SNMPINDEX}</snmp_oid>
+                            <key>logicalLibraryModel.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>TEXT</value_type>
+                            <trends>0</trends>
+                            <description>Partition product identification.</description>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>0c74c6a9fc9d4f9ab8a8f94c19adf814</uuid>
+                            <name>logicalLibraryName[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.70.2.1.2.{#SNMPINDEX}</snmp_oid>
+                            <key>logicalLibraryName.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>TEXT</value_type>
+                            <trends>0</trends>
+                            <description>Partition identification name.</description>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>5bce3942f28f42779306632461205d51</uuid>
+                            <name>logicalLibraryNumIE[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.70.2.1.12.{#SNMPINDEX}</snmp_oid>
+                            <key>logicalLibraryNumIE.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>FLOAT</value_type>
+                            <trends>0</trends>
+                            <description>Number of configured partition Insert/Eject elements.</description>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>ac1515c608ec4cdd8ef334d754821c7a</uuid>
+                            <name>logicalLibraryNumSlots[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.70.2.1.11.{#SNMPINDEX}</snmp_oid>
+                            <key>logicalLibraryNumSlots.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>FLOAT</value_type>
+                            <trends>0</trends>
+                            <description>Number of configured partition storage elements.</description>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>6067d03e01b04b92bd7eda3cc5ba38e6</uuid>
+                            <name>logicalLibraryNumTapeDrives[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.70.2.1.13.{#SNMPINDEX}</snmp_oid>
+                            <key>logicalLibraryNumTapeDrives.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>FLOAT</value_type>
+                            <trends>0</trends>
+                            <description>Number of configured data transfer elements (tape drives).</description>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>0d7efb69d241402d8c75b20249447dcb</uuid>
+                            <name>logicalLibrarySerialNumber[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.70.2.1.3.{#SNMPINDEX}</snmp_oid>
+                            <key>logicalLibrarySerialNumber.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>TEXT</value_type>
+                            <trends>0</trends>
+                            <description>Partition serial number.</description>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>cfb1bf054388461685d0446ad7cc775a</uuid>
+                            <name>logicalLibraryState[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.70.2.1.9.{#SNMPINDEX}</snmp_oid>
+                            <key>logicalLibraryState.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>FLOAT</value_type>
+                            <trends>0</trends>
+                            <description>Partition ready/not-ready status.</description>
+                            <valuemap>
+                                <name>LibraryState</name>
+                            </valuemap>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                            <trigger_prototypes>
+                                <trigger_prototype>
+                                    <uuid>b72ccf7a62414970bd4c85e9c9680133</uuid>
+                                    <expression>last(/Quantum i6/logicalLibraryState.[{#SNMPINDEX}])=2</expression>
+                                    <name>Logical Library Not Ready on Partition {#SNMPINDEX}</name>
+                                    <priority>WARNING</priority>
+                                    <description>This trigger activates when a logical library partition is detected as not ready.</description>
+                                </trigger_prototype>
+                            </trigger_prototypes>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>ac85faf363f44b90acf5a6ba2e11f916</uuid>
+                            <name>logicalLibraryStorageElemAddr[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.70.2.1.14.{#SNMPINDEX}</snmp_oid>
+                            <key>logicalLibraryStorageElemAddr.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>FLOAT</value_type>
+                            <trends>0</trends>
+                            <description>First partition storage SCSI element address.</description>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>5be9966d68db4854a7028503286bfcbb</uuid>
+                            <name>logicalLibraryTapeDriveElemAddr[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.70.2.1.16.{#SNMPINDEX}</snmp_oid>
+                            <key>logicalLibraryTapeDriveElemAddr.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>FLOAT</value_type>
+                            <trends>0</trends>
+                            <description>First partition data transfer SCSI element address.</description>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>d6bad33041444276b2719b3070270f65</uuid>
+                            <name>logicalLibraryType[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.70.2.1.5.{#SNMPINDEX}</snmp_oid>
+                            <key>logicalLibraryType.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>FLOAT</value_type>
+                            <trends>0</trends>
+                            <description>Partition configuration type.</description>
+                            <valuemap>
+                                <name>PartitionType</name>
+                            </valuemap>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                    </item_prototypes>
+                    <timeout>10s</timeout>
+                    <preprocessing>
+                        <step>
+                            <type>JAVASCRIPT</type>
+                            <parameters>
+                                <parameter>var results = value.split(&quot;\n&quot;); // Split input by new lines to process each line individually
+var dataArray = []; // Array to hold each JSON object
+var seenIndices = {}; // Track seen indices to avoid duplicates
+
+for (var i = 0; i &lt; results.length; i++) {
+    var parts = results[i].split(&quot; = &quot;); // Split each line into OID and value parts
+    if (parts.length &gt;= 2) {
+        var oid = parts[0].trim(); // Extract the OID part and trim any whitespace
+        var statusText = parts[1].trim(); // Extract the status text
+
+        // Extract the index from the OID
+        var match = oid.match(/\.(\d+)$/); // Match the index at the end of the OID
+        if (match) {
+            var index = match[1]; // Captured index
+
+            // Check if this index has already been processed
+            if (seenIndices[index]) {
+                continue; // Skip if this index is already processed
+            }
+
+            // Perform the status replacement
+            var updatedStatus = statusText.replace(/\s*\(.*?\)/, &quot;_REPLACED_&quot;); // Replace status text
+
+            // Add the JSON object to the array
+            dataArray.push({
+                &quot;{#SNMPINDEX}&quot;: index, // Use the captured index as {#SNMPINDEX}
+                &quot;{#STATUS}&quot;: updatedStatus
+            });
+
+            // Mark this index as processed
+            seenIndices[index] = true;
+        }
+    }
+}
+
+// Return the array as a JSON object for Zabbix discovery
+return JSON.stringify({
+    data: dataArray
+});
+</parameter>
+                            </parameters>
+                        </step>
+                    </preprocessing>
+                </discovery_rule>
+                <discovery_rule>
+                    <uuid>343c59b11b424f26b54f8230acc4146b</uuid>
+                    <name>physicalDriveTable</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>walk[.1.3.6.1.4.1.3697.1.10.15.5.80.2]</snmp_oid>
+                    <key>.1.3.6.1.4.1.3697.1.10.15.5.80.2</key>
+                    <delay>3600</delay>
+                    <lifetime>30d</lifetime>
+                    <enabled_lifetime_type>DISABLE_NEVER</enabled_lifetime_type>
+                    <description>A table of all tape drive configured in the library.</description>
+                    <item_prototypes>
+                        <item_prototype>
+                            <uuid>fa4f51a2ce774a0e900e2a7112ad13f9</uuid>
+                            <name>phDriveAddress[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.80.2.1.7.{#SNMPINDEX}</snmp_oid>
+                            <key>phDriveAddress.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>TEXT</value_type>
+                            <trends>0</trends>
+                            <description>Tape drive FC WWNN, SAS Address, or SCSI ID.</description>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>1123d17e035843bf8704545a4cd829f5</uuid>
+                            <name>phDriveCleaningStatus[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.80.2.1.15.{#SNMPINDEX}</snmp_oid>
+                            <key>phDriveCleaningStatus.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>FLOAT</value_type>
+                            <trends>0</trends>
+                            <description>Tape drive's cleaning status.</description>
+                            <valuemap>
+                                <name>CleaningStatus</name>
+                            </valuemap>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                            <trigger_prototypes>
+                                <trigger_prototype>
+                                    <uuid>37fc3b86d6ea4dc6bb3f5b6050c7ce72</uuid>
+                                    <expression>last(/Quantum i6/phDriveCleaningStatus.[{#SNMPINDEX}])=3</expression>
+                                    <name>Drive Cleaning Required on {#SNMPINDEX}</name>
+                                    <priority>WARNING</priority>
+                                    <description>This trigger activates when a physical drive requires cleaning.</description>
+                                </trigger_prototype>
+                            </trigger_prototypes>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>4f3a5e9713694229a2507c57de78bcf2</uuid>
+                            <name>phDriveControlPathDrive[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.80.2.1.17.{#SNMPINDEX}</snmp_oid>
+                            <key>phDriveControlPathDrive.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>FLOAT</value_type>
+                            <trends>0</trends>
+                            <description>Indication whether drive is hosting a library control path.</description>
+                            <valuemap>
+                                <name>ControlPathType</name>
+                            </valuemap>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>fcc4bb7cc2db4236ac8b63e2fd4fb818</uuid>
+                            <name>phDriveDataPathConfiguration[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.80.2.1.18.{#SNMPINDEX}</snmp_oid>
+                            <key>phDriveDataPathConfiguration.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>FLOAT</value_type>
+                            <trends>0</trends>
+                            <description>Drive data path port configuration.</description>
+                            <valuemap>
+                                <name>RedundancyConfiguration</name>
+                            </valuemap>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>cd2d6aa25bbe4da1ab3405f5b7bdf1c8</uuid>
+                            <name>phDriveDeviceId[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.80.2.1.3.{#SNMPINDEX}</snmp_oid>
+                            <key>phDriveDeviceId.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>TEXT</value_type>
+                            <trends>0</trends>
+                            <description>Tape drive device identifier.</description>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>cf5e5cccd984418f92fdba2f3e1f0eda</uuid>
+                            <name>phDriveFirmwareVersion[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.80.2.1.10.{#SNMPINDEX}</snmp_oid>
+                            <key>phDriveFirmwareVersion.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>TEXT</value_type>
+                            <trends>0</trends>
+                            <description>Tape drive firmware version.</description>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>5603b9aa6afe4081b9785bf53cc07a91</uuid>
+                            <name>phDriveInterfaceType[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.80.2.1.6.{#SNMPINDEX}</snmp_oid>
+                            <key>phDriveInterfaceType.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>FLOAT</value_type>
+                            <trends>0</trends>
+                            <description>Tape drive interface type.</description>
+                            <valuemap>
+                                <name>InterfaceType</name>
+                            </valuemap>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>c5de368cc9654dd8ab7a5c7a17a3d8fb</uuid>
+                            <name>phDriveLoads[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.80.2.1.14.{#SNMPINDEX}</snmp_oid>
+                            <key>phDriveLoads.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>FLOAT</value_type>
+                            <trends>0</trends>
+                            <description>Tape drive's total cartridge load count.</description>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                            <trigger_prototypes>
+                                <trigger_prototype>
+                                    <uuid>e64e820e452f41bc85b9fef70561b36e</uuid>
+                                    <expression>last(/Quantum i6/phDriveLoads.[{#SNMPINDEX}])&gt;&quot;{$MaxDriveLoads}&quot;</expression>
+                                    <name>Drive Load Count Exceeded on {#SNMPINDEX}</name>
+                                    <priority>AVERAGE</priority>
+                                    <description>This trigger activates when the load count for a physical drive exceeds the defined threshold, indicating potential wear.</description>
+                                </trigger_prototype>
+                            </trigger_prototypes>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>77e6c9b373c842beb98a13ddf588e0a5</uuid>
+                            <name>phDriveLocation[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.80.2.1.2.{#SNMPINDEX}</snmp_oid>
+                            <key>phDriveLocation.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>TEXT</value_type>
+                            <trends>0</trends>
+                            <description>Tape drive location within the library.</description>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>3546846554aa488e87f039e3858f40b1</uuid>
+                            <name>phDriveLogicalLibraryName[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.80.2.1.16.{#SNMPINDEX}</snmp_oid>
+                            <key>phDriveLogicalLibraryName.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>TEXT</value_type>
+                            <trends>0</trends>
+                            <description>Name of the logical library (partition) owning the drive.</description>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>96a3419798434c43bd4b0e4a6c64967e</uuid>
+                            <name>phDriveLogicalSerialNumber[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.80.2.1.9.{#SNMPINDEX}</snmp_oid>
+                            <key>phDriveLogicalSerialNumber.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>TEXT</value_type>
+                            <trends>0</trends>
+                            <description>SCSI host reported tape drive serial number.</description>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>35037f8e562542d18038bced7aaec12f</uuid>
+                            <name>phDriveMode[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.80.2.1.11.{#SNMPINDEX}</snmp_oid>
+                            <key>phDriveMode.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>FLOAT</value_type>
+                            <trends>0</trends>
+                            <description>Tape drive online status.</description>
+                            <valuemap>
+                                <name>DeviceMode</name>
+                            </valuemap>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                            <trigger_prototypes>
+                                <trigger_prototype>
+                                    <uuid>1fee1d6bcbbe428f96b76966ab555dd9</uuid>
+                                    <expression>last(/Quantum i6/phDriveMode.[{#SNMPINDEX}])=2</expression>
+                                    <name>Drive Offline on {#SNMPINDEX}</name>
+                                    <priority>HIGH</priority>
+                                    <description>This trigger activates when a physical drive is detected as offline.</description>
+                                </trigger_prototype>
+                            </trigger_prototypes>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>aaf8fce666664f9eb3cfa12bb76df376</uuid>
+                            <name>phDrivePhysicalSerialNumber[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.80.2.1.8.{#SNMPINDEX}</snmp_oid>
+                            <key>phDrivePhysicalSerialNumber.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>TEXT</value_type>
+                            <trends>0</trends>
+                            <description>Physical tape drive serial number.</description>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>cc64020021b340ae8dc89594d6ffd1d4</uuid>
+                            <name>phDriveRasStatus[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.80.2.1.13.{#SNMPINDEX}</snmp_oid>
+                            <key>phDriveRasStatus.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>FLOAT</value_type>
+                            <trends>0</trends>
+                            <description>Tape drive health status.</description>
+                            <valuemap>
+                                <name>RASSubSystemStatus</name>
+                            </valuemap>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                            <trigger_prototypes>
+                                <trigger_prototype>
+                                    <uuid>935db02321954898b8506e30fe9d4ea3</uuid>
+                                    <expression>last(/Quantum i6/phDriveRasStatus.[{#SNMPINDEX}])=1</expression>
+                                    <name>Drive Failed on {#SNMPINDEX}</name>
+                                    <priority>DISASTER</priority>
+                                    <description>This trigger activates when a physical drive has failed.</description>
+                                </trigger_prototype>
+                            </trigger_prototypes>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>db71210eec954d7fb171c935a65b868a</uuid>
+                            <name>phDriveState[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.80.2.1.12.{#SNMPINDEX}</snmp_oid>
+                            <key>phDriveState.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>FLOAT</value_type>
+                            <trends>0</trends>
+                            <description>Tape drive ready status.</description>
+                            <valuemap>
+                                <name>DeviceState</name>
+                            </valuemap>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                            <trigger_prototypes>
+                                <trigger_prototype>
+                                    <uuid>bbcd2694dc5f4102b6b70465a62f9ba6</uuid>
+                                    <expression>last(/Quantum i6/phDriveState.[{#SNMPINDEX}])=3</expression>
+                                    <name>Drive Not Ready on {#SNMPINDEX}</name>
+                                    <priority>WARNING</priority>
+                                    <description>This trigger activates when a physical drive is detected as not ready.</description>
+                                </trigger_prototype>
+                            </trigger_prototypes>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>7f854faa5090497ea63f693764202d66</uuid>
+                            <name>phDriveType[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.80.2.1.5.{#SNMPINDEX}</snmp_oid>
+                            <key>phDriveType.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>TEXT</value_type>
+                            <trends>0</trends>
+                            <description>Tape drive type/generation.</description>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>088b2f50cbb44a5aade04d0db6351c7b</uuid>
+                            <name>phDriveVendor[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.80.2.1.4.{#SNMPINDEX}</snmp_oid>
+                            <key>phDriveVendor.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>TEXT</value_type>
+                            <trends>0</trends>
+                            <description>Tape drive vendor identification.</description>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                    </item_prototypes>
+                    <timeout>5s</timeout>
+                    <preprocessing>
+                        <step>
+                            <type>JAVASCRIPT</type>
+                            <parameters>
+                                <parameter>var results = value.split(&quot;\n&quot;); // Split input by new lines to process each line individually
+var dataArray = []; // Array to hold each JSON object
+var seenIndices = {}; // Track seen indices to avoid duplicates
+
+for (var i = 0; i &lt; results.length; i++) {
+    var parts = results[i].split(&quot; = &quot;); // Split each line into OID and value parts
+    if (parts.length &gt;= 2) {
+        var oid = parts[0].trim(); // Extract the OID part and trim any whitespace
+        var statusText = parts[1].trim(); // Extract the status text
+
+        // Extract the index from the OID
+        var match = oid.match(/\.(\d+)$/); // Match the index at the end of the OID
+        if (match) {
+            var index = match[1]; // Captured index
+
+            // Check if this index has already been processed
+            if (seenIndices[index]) {
+                continue; // Skip if this index is already processed
+            }
+
+            // Perform the status replacement
+            var updatedStatus = statusText.replace(/\s*\(.*?\)/, &quot;_REPLACED_&quot;); // Replace status text
+
+            // Add the JSON object to the array
+            dataArray.push({
+                &quot;{#SNMPINDEX}&quot;: index, // Use the captured index as {#SNMPINDEX}
+                &quot;{#STATUS}&quot;: updatedStatus
+            });
+
+            // Mark this index as processed
+            seenIndices[index] = true;
+        }
+    }
+}
+
+// Return the array as a JSON object for Zabbix discovery
+return JSON.stringify({
+    data: dataArray
+});
+</parameter>
+                            </parameters>
+                        </step>
+                    </preprocessing>
+                </discovery_rule>
+                <discovery_rule>
+                    <uuid>46360bb0b4834e8fb76d68b65803cefc</uuid>
+                    <name>libraryPowerSupplyTable</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>walk[.1.3.6.1.4.1.3697.1.10.15.5.100.2.1]</snmp_oid>
+                    <key>.1.3.6.1.4.1.3697.1.10.15.5.100.2.1</key>
+                    <delay>3600</delay>
+                    <lifetime>30d</lifetime>
+                    <enabled_lifetime_type>DISABLE_NEVER</enabled_lifetime_type>
+                    <description>Table of library power supplies.</description>
+                    <item_prototypes>
+                        <item_prototype>
+                            <uuid>dc0a36418e8548e69a806d2bf5a35430</uuid>
+                            <name>libraryPSLocation[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.100.2.1.3.{#SNMPINDEX}</snmp_oid>
+                            <key>libraryPSLocation.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>TEXT</value_type>
+                            <trends>0</trends>
+                            <description>Power supply location coordinate.</description>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>04d06d36844140f48d81663a3918f9e0</uuid>
+                            <name>libraryPSName[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.100.2.1.2.{#SNMPINDEX}</snmp_oid>
+                            <key>libraryPSName.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>TEXT</value_type>
+                            <trends>0</trends>
+                            <description>Display name of this power supply.</description>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>a0409eb6b087468dbfa5e43a0243ec33</uuid>
+                            <name>libraryPSPowerConsumption[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.100.2.1.7.{#SNMPINDEX}</snmp_oid>
+                            <key>libraryPSPowerConsumption.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>FLOAT</value_type>
+                            <trends>0</trends>
+                            <units>Watts</units>
+                            <description>Power consumption in units of Watts.</description>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                            <trigger_prototypes>
+                                <trigger_prototype>
+                                    <uuid>4779cf9dee7a444bbd59a4fafd13af3a</uuid>
+                                    <expression>last(/Quantum i6/libraryPSPowerConsumption.[{#SNMPINDEX}])&gt;&quot;{$HighPowerConsumptionThreshold}&quot;</expression>
+                                    <name>High Power Consumption on Power Supply {#SNMPINDEX}</name>
+                                    <priority>WARNING</priority>
+                                    <description>This trigger activates when the power consumption of a power supply exceeds the defined threshold.</description>
+                                </trigger_prototype>
+                            </trigger_prototypes>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>d918bef95a594ffab440a2067e035d1e</uuid>
+                            <name>libraryPSStatus[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.100.2.1.6.{#SNMPINDEX}</snmp_oid>
+                            <key>libraryPSStatus.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <trends>0</trends>
+                            <description>Status of the P/S.</description>
+                            <valuemap>
+                                <name>PSStatus</name>
+                            </valuemap>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                            <trigger_prototypes>
+                                <trigger_prototype>
+                                    <uuid>f8ebe54b7ee7449fae7e95b335de69d3</uuid>
+                                    <expression>last(/Quantum i6/libraryPSStatus.[{#SNMPINDEX}])&lt;&gt;1</expression>
+                                    <name>last(/Quantum i6/libraryPSStatus.[{#SNMPINDEX}])&lt;&gt;1</name>
+                                    <priority>AVERAGE</priority>
+                                    <description>This trigger activates when the power supply status is anything other than &quot;good.&quot;</description>
+                                </trigger_prototype>
+                                <trigger_prototype>
+                                    <uuid>baedea9df14f49c6a2ad06a249c14493</uuid>
+                                    <expression>last(/Quantum i6/libraryPSStatus.[{#SNMPINDEX}])=2</expression>
+                                    <name>Power Supply Failure on {#SNMPINDEX}</name>
+                                    <priority>HIGH</priority>
+                                    <description>This trigger activates when a power supply in the library fails.</description>
+                                </trigger_prototype>
+                                <trigger_prototype>
+                                    <uuid>3cb161fbe67f454c909a1d66942bcd18</uuid>
+                                    <expression>last(/Quantum i6/libraryPSStatus.[{#SNMPINDEX}])=3</expression>
+                                    <name>Power Supply Missing on {#SNMPINDEX}</name>
+                                    <priority>HIGH</priority>
+                                    <description>This trigger activates when a power supply is detected as missing.</description>
+                                </trigger_prototype>
+                            </trigger_prototypes>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>36db080c11174f1b97b2e7ea1abdc427</uuid>
+                            <name>libraryPSType[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.100.2.1.4.{#SNMPINDEX}</snmp_oid>
+                            <key>libraryPSType.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>FLOAT</value_type>
+                            <trends>0</trends>
+                            <description>Power supply type of AC or DC</description>
+                            <valuemap>
+                                <name>VoltageType</name>
+                            </valuemap>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>f55b620eb624497397d4fd4719ec854a</uuid>
+                            <name>libraryPSWattage[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.100.2.1.5.{#SNMPINDEX}</snmp_oid>
+                            <key>libraryPSWattage.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>FLOAT</value_type>
+                            <trends>0</trends>
+                            <units>Watts</units>
+                            <description>Power output rating in units of Watts.</description>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                            <trigger_prototypes>
+                                <trigger_prototype>
+                                    <uuid>6ed7e4454e294f24a328417e6a688537</uuid>
+                                    <expression>last(/Quantum i6/libraryPSWattage.[{#SNMPINDEX}])&lt;&quot;{$LowPowerOutputThreshold}&quot;</expression>
+                                    <name>Low Power Output on Power Supply {#SNMPINDEX}</name>
+                                    <priority>WARNING</priority>
+                                    <description>This trigger activates when the power output of a power supply falls below the threshold defined.</description>
+                                </trigger_prototype>
+                            </trigger_prototypes>
+                        </item_prototype>
+                    </item_prototypes>
+                    <preprocessing>
+                        <step>
+                            <type>JAVASCRIPT</type>
+                            <parameters>
+                                <parameter>var results = value.split(&quot;\n&quot;); // Split input by new lines to process each line individually
+var dataArray = []; // Array to hold each JSON object
+var seenIndices = {}; // Track seen indices to avoid duplicates
+
+for (var i = 0; i &lt; results.length; i++) {
+    var parts = results[i].split(&quot; = &quot;); // Split each line into OID and value parts
+    if (parts.length &gt;= 2) {
+        var oid = parts[0].trim(); // Extract the OID part and trim any whitespace
+        var statusText = parts[1].trim(); // Extract the status text
+
+        // Extract the index from the OID
+        var match = oid.match(/\.(\d+)$/); // Match the index at the end of the OID
+        if (match) {
+            var index = match[1]; // Captured index
+
+            // Check if this index has already been processed
+            if (seenIndices[index]) {
+                continue; // Skip if this index is already processed
+            }
+
+            // Perform the status replacement
+            var updatedStatus = statusText.replace(/\s*\(.*?\)/, &quot;_REPLACED_&quot;); // Replace status text
+
+            // Add the JSON object to the array
+            dataArray.push({
+                &quot;{#SNMPINDEX}&quot;: index, // Use the captured index as {#SNMPINDEX}
+                &quot;{#STATUS}&quot;: updatedStatus
+            });
+
+            // Mark this index as processed
+            seenIndices[index] = true;
+        }
+    }
+}
+
+// Return the array as a JSON object for Zabbix discovery
+return JSON.stringify({
+    data: dataArray
+});
+</parameter>
+                            </parameters>
+                        </step>
+                    </preprocessing>
+                </discovery_rule>
+                <discovery_rule>
+                    <uuid>b1ea1a8c57934516acd1aa5250bc9b5d</uuid>
+                    <name>libraryVoltageSensorTable</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>walk[.1.3.6.1.4.1.3697.1.10.15.5.110.2]</snmp_oid>
+                    <key>.1.3.6.1.4.1.3697.1.10.15.5.110.2</key>
+                    <delay>3600</delay>
+                    <status>DISABLED</status>
+                    <lifetime>30d</lifetime>
+                    <enabled_lifetime_type>DISABLE_NEVER</enabled_lifetime_type>
+                    <description>Table of library voltage sensors.</description>
+                    <item_prototypes>
+                        <item_prototype>
+                            <uuid>50ce72430e9e4ed49e6e4c2d1be2a71b</uuid>
+                            <name>ibraryVoltageSensorName[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.110.2.1.2.{#SNMPINDEX}</snmp_oid>
+                            <key>ibraryVoltageSensorName.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>TEXT</value_type>
+                            <trends>0</trends>
+                            <description>Display name of this voltage sensor.</description>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>0a72bfb0301b4893a1953d4722014f45</uuid>
+                            <name>libraryVoltageSensorLocation[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.110.2.1.3.{#SNMPINDEX}</snmp_oid>
+                            <key>libraryVoltageSensorLocation.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>TEXT</value_type>
+                            <trends>0</trends>
+                            <description>Physical location of the voltage sensor.</description>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>b791c43121a248e78b2161358594b9a0</uuid>
+                            <name>libraryVoltageSensorStatus[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.110.2.1.5.{#SNMPINDEX}</snmp_oid>
+                            <key>libraryVoltageSensorStatus.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>FLOAT</value_type>
+                            <trends>0</trends>
+                            <description>Voltage sensor status.</description>
+                            <valuemap>
+                                <name>SensorStatus</name>
+                            </valuemap>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                            <trigger_prototypes>
+                                <trigger_prototype>
+                                    <uuid>1c780122e3a745bb82b5c682dfe2486d</uuid>
+                                    <expression>last(/Quantum i6/libraryVoltageSensorStatus.[{#SNMPINDEX}])=3</expression>
+                                    <name>Voltage Sensor Status Critical on Sensor {#SNMPINDEX}</name>
+                                    <priority>HIGH</priority>
+                                    <description>This trigger activates when the voltage sensor status indicates a critical condition.</description>
+                                </trigger_prototype>
+                                <trigger_prototype>
+                                    <uuid>902e860a470e40f09ce9a2963654f642</uuid>
+                                    <expression>last(/Quantum i6/libraryVoltageSensorStatus.[{#SNMPINDEX}])=2</expression>
+                                    <name>Voltage Sensor Status Warning on Sensor {#SNMPINDEX}</name>
+                                    <priority>AVERAGE</priority>
+                                    <description>This trigger activates when the voltage sensor status indicates a warning condition.</description>
+                                </trigger_prototype>
+                            </trigger_prototypes>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>127a2da5feec4c8aac1d44cb1e54c074</uuid>
+                            <name>libraryVoltageSensorType[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.110.2.1.4.{#SNMPINDEX}</snmp_oid>
+                            <key>libraryVoltageSensorType.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>FLOAT</value_type>
+                            <trends>0</trends>
+                            <description>Voltage sensor type of AC or DC.</description>
+                            <valuemap>
+                                <name>VoltageType</name>
+                            </valuemap>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>24ff8fc989ea473b8ecb2c9721f42c1d</uuid>
+                            <name>libraryVoltageSensorValue[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.110.2.1.6.{#SNMPINDEX}</snmp_oid>
+                            <key>libraryVoltageSensorValue.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>FLOAT</value_type>
+                            <trends>0</trends>
+                            <units>milli-Volts</units>
+                            <description>Voltage sensor value in milli-Volts.</description>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                            <trigger_prototypes>
+                                <trigger_prototype>
+                                    <uuid>fe11642e9cda4e549914c119dc087637</uuid>
+                                    <expression>last(/Quantum i6/libraryVoltageSensorValue.[{#SNMPINDEX}])&gt;&quot;{$HighVoltageCrit}&quot;</expression>
+                                    <name>High Voltage Critical on Sensor {#SNMPINDEX}</name>
+                                    <priority>HIGH</priority>
+                                    <description>This trigger activates when the voltage reading from a sensor exceeds the critical threshold, indicating a potentially dangerous condition.</description>
+                                </trigger_prototype>
+                                <trigger_prototype>
+                                    <uuid>d7b24861cb26489fb47b2c759470a700</uuid>
+                                    <expression>last(/Quantum i6/libraryVoltageSensorValue.[{#SNMPINDEX}])&gt;&quot;{$HighVoltageWarn}&quot;</expression>
+                                    <name>High Voltage Warning on Sensor {#SNMPINDEX}</name>
+                                    <priority>WARNING</priority>
+                                    <description>This trigger activates when the voltage reading from a sensor exceeds the warning threshold.</description>
+                                </trigger_prototype>
+                                <trigger_prototype>
+                                    <uuid>206ef76a33ac4f7ab5119a0d80a0df2e</uuid>
+                                    <expression>last(/Quantum i6/libraryVoltageSensorValue.[{#SNMPINDEX}])&lt;&quot;{$LowVoltageCrit}&quot;</expression>
+                                    <name>Low Voltage Critical on Sensor {#SNMPINDEX}</name>
+                                    <priority>HIGH</priority>
+                                    <description>This trigger activates when the voltage reading from a sensor falls below the critical threshold, indicating a potentially dangerous condition.</description>
+                                </trigger_prototype>
+                                <trigger_prototype>
+                                    <uuid>a7df84f41ac243dfb1266cdb8ab869f8</uuid>
+                                    <expression>last(/Quantum i6/libraryVoltageSensorValue.[{#SNMPINDEX}])&lt;&quot;{$LowVoltageWarn}&quot;</expression>
+                                    <name>Low Voltage Warning on Sensor {#SNMPINDEX}</name>
+                                    <priority>WARNING</priority>
+                                    <description>This trigger activates when the voltage reading from a sensor falls below the warning threshold.</description>
+                                </trigger_prototype>
+                            </trigger_prototypes>
+                        </item_prototype>
+                    </item_prototypes>
+                    <preprocessing>
+                        <step>
+                            <type>JAVASCRIPT</type>
+                            <parameters>
+                                <parameter>var results = value.split(&quot;\n&quot;); // Split input by new lines to process each line individually
+var dataArray = []; // Array to hold each JSON object
+var seenIndices = {}; // Track seen indices to avoid duplicates
+
+for (var i = 0; i &lt; results.length; i++) {
+    var parts = results[i].split(&quot; = &quot;); // Split each line into OID and value parts
+    if (parts.length &gt;= 2) {
+        var oid = parts[0].trim(); // Extract the OID part and trim any whitespace
+        var statusText = parts[1].trim(); // Extract the status text
+
+        // Extract the index from the OID
+        var match = oid.match(/\.(\d+)$/); // Match the index at the end of the OID
+        if (match) {
+            var index = match[1]; // Captured index
+
+            // Check if this index has already been processed
+            if (seenIndices[index]) {
+                continue; // Skip if this index is already processed
+            }
+
+            // Perform the status replacement
+            var updatedStatus = statusText.replace(/\s*\(.*?\)/, &quot;_REPLACED_&quot;); // Replace status text
+
+            // Add the JSON object to the array
+            dataArray.push({
+                &quot;{#SNMPINDEX}&quot;: index, // Use the captured index as {#SNMPINDEX}
+                &quot;{#STATUS}&quot;: updatedStatus
+            });
+
+            // Mark this index as processed
+            seenIndices[index] = true;
+        }
+    }
+}
+
+// Return the array as a JSON object for Zabbix discovery
+return JSON.stringify({
+    data: dataArray
+});
+</parameter>
+                            </parameters>
+                        </step>
+                    </preprocessing>
+                </discovery_rule>
+                <discovery_rule>
+                    <uuid>a539cd83d2dc497dad7bd97224e1e627</uuid>
+                    <name>libraryHumiditySensorTable</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>walk[1.3.6.1.4.1.3697.1.10.15.5.120.1.2]</snmp_oid>
+                    <key>.1.3.6.1.4.1.3697.1.10.15.5.120.1.2</key>
+                    <delay>3600</delay>
+                    <lifetime>30d</lifetime>
+                    <enabled_lifetime_type>DISABLE_NEVER</enabled_lifetime_type>
+                    <description>Table of library humidity sensors.</description>
+                    <item_prototypes>
+                        <item_prototype>
+                            <uuid>3f5e56558ebf43c7a0692d4b0b860538</uuid>
+                            <name>ibraryHumiditySensorName[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.120.1.2.1.2.{#SNMPINDEX}</snmp_oid>
+                            <key>ibraryHumiditySensorName.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>TEXT</value_type>
+                            <trends>0</trends>
+                            <description>Display name of this humidity sensor.</description>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>499ccebd2e88480fa788bc1cfdddb460</uuid>
+                            <name>libraryHumiditySensorLocation[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.120.1.2.1.3.{#SNMPINDEX}</snmp_oid>
+                            <key>libraryHumiditySensorLocation[.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>TEXT</value_type>
+                            <trends>0</trends>
+                            <description>Physical location of this humidity sensor.</description>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>3cf0100913af4e7e9a97abe65d973424</uuid>
+                            <name>libraryHumiditySensorStatus[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.120.1.2.1.4.{#SNMPINDEX}</snmp_oid>
+                            <key>libraryHumiditySensorStatus.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>FLOAT</value_type>
+                            <trends>0</trends>
+                            <description>Humidity sensor status in normal, warning or critical range.</description>
+                            <valuemap>
+                                <name>SensorStatus</name>
+                            </valuemap>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                            <trigger_prototypes>
+                                <trigger_prototype>
+                                    <uuid>2d0d2d359fc64a51bcc0eba31939d1f2</uuid>
+                                    <expression>last(/Quantum i6/libraryHumiditySensorStatus.[{#SNMPINDEX}])=3</expression>
+                                    <name>Library Humidity Sensor {#SNMPINDEX}: Status Critical</name>
+                                    <priority>HIGH</priority>
+                                    <description>Library humidity sensor has a critical alert.</description>
+                                </trigger_prototype>
+                                <trigger_prototype>
+                                    <uuid>ad786403527543a2a55cee3d1ea836ac</uuid>
+                                    <expression>last(/Quantum i6/libraryHumiditySensorStatus.[{#SNMPINDEX}])=2</expression>
+                                    <name>Library Humidity Sensor {#SNMPINDEX} Status Warning</name>
+                                    <priority>WARNING</priority>
+                                    <description>Library humidity sensor has a warning alert.</description>
+                                </trigger_prototype>
+                            </trigger_prototypes>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>5bbb8d2d558f4e9ebef46fcd3dbfeabf</uuid>
+                            <name>libraryHumiditySensorValue[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.120.1.2.1.5.{#SNMPINDEX}</snmp_oid>
+                            <key>libraryHumiditySensorValue.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>FLOAT</value_type>
+                            <trends>0</trends>
+                            <units>%</units>
+                            <description>Library humidity sensor data in %.</description>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                            <trigger_prototypes>
+                                <trigger_prototype>
+                                    <uuid>0696bfbe4cc64f77b454d24202ab4f56</uuid>
+                                    <expression>last(/Quantum i6/libraryHumiditySensorValue.[{#SNMPINDEX}])&gt; &quot;{$HighHumidCrit}&quot;</expression>
+                                    <name>Library Humidity Sensor {#SNMPINDEX}: Value greater than {$HighHumidCrit} %</name>
+                                    <priority>HIGH</priority>
+                                </trigger_prototype>
+                                <trigger_prototype>
+                                    <uuid>1f4786d5bb244aea8e763ca824612481</uuid>
+                                    <expression>last(/Quantum i6/libraryHumiditySensorValue.[{#SNMPINDEX}])&gt; &quot;{$HighHumidWarn}&quot;</expression>
+                                    <name>Library Humidity Sensor {#SNMPINDEX}: Value less than {$HighHumidWarn} %</name>
+                                    <priority>AVERAGE</priority>
+                                    <description>Library humidity sensor {#SNMPINDEX} value is greater than the defined warning alert of {$HighHumidWarn}.</description>
+                                </trigger_prototype>
+                                <trigger_prototype>
+                                    <uuid>69e40bb31cef49ce8e7ad8a82fd4e66e</uuid>
+                                    <expression>last(/Quantum i6/libraryHumiditySensorValue.[{#SNMPINDEX}])&lt; &quot;{$LowHumidCrit}&quot;</expression>
+                                    <name>Library Humidity Sensor {#SNMPINDEX}: Value less than {$LowHumidCrit} %</name>
+                                    <priority>HIGH</priority>
+                                </trigger_prototype>
+                                <trigger_prototype>
+                                    <uuid>82559ac39ef045be906efcca8c027a2a</uuid>
+                                    <expression>last(/Quantum i6/libraryHumiditySensorValue.[{#SNMPINDEX}])&lt; &quot;{$LowHumidWarn}&quot;</expression>
+                                    <name>Library Humidity Sensor {#SNMPINDEX}: Value less than {$LowHumidWarn} %</name>
+                                    <priority>WARNING</priority>
+                                    <description>Library humidity sensor {#SNMPINDEX} value is less than the defined warning alert of {$LowHumidWarn}.</description>
+                                </trigger_prototype>
+                                <trigger_prototype>
+                                    <uuid>7d60e98dd09d43f0b9a58d32caca904c</uuid>
+                                    <expression>abs(last(/Quantum i6/libraryHumiditySensorValue.[{#SNMPINDEX}]) - avg(/Quantum i6/libraryHumiditySensorValue.[{#SNMPINDEX}],1h))&gt; &quot;{$HumidDeviation}&quot;</expression>
+                                    <name>Library Humidity Sensor {SNMPINDEX}: Humidity Deviation Alert</name>
+                                    <priority>WARNING</priority>
+                                    <description>The current humidity value deviated from a historical average.</description>
+                                </trigger_prototype>
+                                <trigger_prototype>
+                                    <uuid>50a05f10a4104e77a0c3823bcbff1a34</uuid>
+                                    <expression>abs(last(/Quantum i6/libraryHumiditySensorValue.[{#SNMPINDEX}]) - min(/Quantum i6/libraryHumiditySensorValue.[{#SNMPINDEX}],5m)) &gt; &quot;{$RapidHumidChange}&quot;</expression>
+                                    <name>Library Humidity Sensor {SNMPINDEX}: Rapid Humidity Change Alert</name>
+                                    <priority>WARNING</priority>
+                                </trigger_prototype>
+                            </trigger_prototypes>
+                        </item_prototype>
+                    </item_prototypes>
+                    <timeout>10s</timeout>
+                    <preprocessing>
+                        <step>
+                            <type>JAVASCRIPT</type>
+                            <parameters>
+                                <parameter>var results = value.split(&quot;\n&quot;); // Split input by new lines to process each line individually
+var dataArray = []; // Array to hold each JSON object
+var seenIndices = {}; // Track seen indices to avoid duplicates
+
+for (var i = 0; i &lt; results.length; i++) {
+    var parts = results[i].split(&quot; = &quot;); // Split each line into OID and value parts
+    if (parts.length &gt;= 2) {
+        var oid = parts[0].trim(); // Extract the OID part and trim any whitespace
+        var statusText = parts[1].trim(); // Extract the status text
+
+        // Extract the index from the OID
+        var match = oid.match(/\.(\d+)$/); // Match the index at the end of the OID
+        if (match) {
+            var index = match[1]; // Captured index
+
+            // Check if this index has already been processed
+            if (seenIndices[index]) {
+                continue; // Skip if this index is already processed
+            }
+
+            // Perform the status replacement
+            var updatedStatus = statusText.replace(/\s*\(.*?\)/, &quot;_REPLACED_&quot;); // Replace status text
+
+            // Add the JSON object to the array
+            dataArray.push({
+                &quot;{#SNMPINDEX}&quot;: index, // Use the captured index as {#SNMPINDEX}
+                &quot;{#STATUS}&quot;: updatedStatus
+            });
+
+            // Mark this index as processed
+            seenIndices[index] = true;
+        }
+    }
+}
+
+// Return the array as a JSON object for Zabbix discovery
+return JSON.stringify({
+    data: dataArray
+});
+</parameter>
+                            </parameters>
+                        </step>
+                    </preprocessing>
+                </discovery_rule>
+                <discovery_rule>
+                    <uuid>2b26e564173748ae84cf4451f2eb59b0</uuid>
+                    <name>libraryTemperatureSensorTable</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>walk[.1.3.6.1.4.1.3697.1.10.15.5.120.2.2]</snmp_oid>
+                    <key>.1.3.6.1.4.1.3697.1.10.15.5.120.2.2</key>
+                    <delay>3600</delay>
+                    <lifetime>30d</lifetime>
+                    <enabled_lifetime_type>DISABLE_NEVER</enabled_lifetime_type>
+                    <description>Table of library temperature sensors.</description>
+                    <item_prototypes>
+                        <item_prototype>
+                            <uuid>8f8698149f9a4a58ba8ca696a5e38d1f</uuid>
+                            <name>libraryTemperatureSensorLocation[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.120.2.2.1.3.{#SNMPINDEX}</snmp_oid>
+                            <key>libraryTemperatureSensorLocation.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>TEXT</value_type>
+                            <trends>0</trends>
+                            <description>Physical location of this temperature sensor.</description>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>a286174b54874bd68ff267c728af8d62</uuid>
+                            <name>libraryTemperatureSensorName[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.120.2.2.1.2.{#SNMPINDEX}</snmp_oid>
+                            <key>libraryTemperatureSensorName.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>TEXT</value_type>
+                            <trends>0</trends>
+                            <description>Display name of this temperature sensor.</description>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>724d6bdeadd14a3d954349c27e70a267</uuid>
+                            <name>libraryTemperatureSensorStatus[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.120.2.2.1.4.{#SNMPINDEX}</snmp_oid>
+                            <key>libraryTemperatureSensorStatus.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>FLOAT</value_type>
+                            <trends>0</trends>
+                            <description>Temperature sensor status in normal, warning or critical range.</description>
+                            <valuemap>
+                                <name>SensorStatus</name>
+                            </valuemap>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                            <trigger_prototypes>
+                                <trigger_prototype>
+                                    <uuid>5f6d96c44b9648f9929ed0b0cfdf6f1d</uuid>
+                                    <expression>last(/Quantum i6/libraryTemperatureSensorStatus.[{#SNMPINDEX}])=3</expression>
+                                    <name>Temperature Sensor Status Critical on Sensor {#SNMPINDEX}</name>
+                                    <priority>HIGH</priority>
+                                    <description>This trigger activates when the temperature sensor status indicates a critical condition.</description>
+                                </trigger_prototype>
+                                <trigger_prototype>
+                                    <uuid>eaca215c99c14e5da03bc7fc60bba426</uuid>
+                                    <expression>last(/Quantum i6/libraryTemperatureSensorStatus.[{#SNMPINDEX}])=2</expression>
+                                    <name>Temperature Sensor Status Warning on Sensor {#SNMPINDEX}</name>
+                                    <priority>AVERAGE</priority>
+                                    <description>This trigger activates when the temperature sensor status indicates a warning condition.</description>
+                                </trigger_prototype>
+                            </trigger_prototypes>
+                        </item_prototype>
+                        <item_prototype>
+                            <uuid>0fb446492d7a4d459dff38fbe6dc9e52</uuid>
+                            <name>libraryTemperatureSensorValue[{#SNMPINDEX}]</name>
+                            <type>SNMP_AGENT</type>
+                            <snmp_oid>.1.3.6.1.4.1.3697.1.10.15.5.120.2.2.1.5.{#SNMPINDEX}</snmp_oid>
+                            <key>libraryTemperatureSensorValue.[{#SNMPINDEX}]</key>
+                            <delay>1h</delay>
+                            <history>2w</history>
+                            <value_type>FLOAT</value_type>
+                            <trends>0</trends>
+                            <units>C</units>
+                            <description>The temperature sensor reading in degrees Celsius.</description>
+                            <tags>
+                                <tag>
+                                    <tag>Application</tag>
+                                    <value>QUANTUM_MIDRANGE_TAPE_LIBRARY_MIB</value>
+                                </tag>
+                            </tags>
+                            <trigger_prototypes>
+                                <trigger_prototype>
+                                    <uuid>b4a89aa2e0df481c93a45350dd85264c</uuid>
+                                    <expression>last(/Quantum i6/libraryTemperatureSensorValue.[{#SNMPINDEX}])&gt;&quot;{$HighTempCrit}&quot;</expression>
+                                    <name>High Temperature Critical on Sensor {#SNMPINDEX}</name>
+                                    <priority>HIGH</priority>
+                                    <description>This trigger activates when the temperature reading from a sensor exceeds the critical threshold, indicating a potentially dangerous condition.</description>
+                                </trigger_prototype>
+                                <trigger_prototype>
+                                    <uuid>1f9b32d452134b69bf313ea0bfea9c3c</uuid>
+                                    <expression>last(/Quantum i6/libraryTemperatureSensorValue.[{#SNMPINDEX}])&gt;&quot;{$HighTempWarn}&quot;</expression>
+                                    <name>High Temperature Warning on Sensor {#SNMPINDEX}</name>
+                                    <priority>WARNING</priority>
+                                    <description>This trigger activates when the temperature reading from a sensor exceeds the warning threshold.</description>
+                                </trigger_prototype>
+                                <trigger_prototype>
+                                    <uuid>e9760e3c80a6431a8fae2718e11b8bfd</uuid>
+                                    <expression>last(/Quantum i6/libraryTemperatureSensorValue.[{#SNMPINDEX}])&lt;&quot;{$LowTempCrit}&quot;</expression>
+                                    <name>Low Temperature Critical on Sensor {#SNMPINDEX}</name>
+                                    <priority>HIGH</priority>
+                                    <description>This trigger activates when the temperature reading from a sensor falls below the critical threshold, indicating a potentially dangerous condition.</description>
+                                </trigger_prototype>
+                                <trigger_prototype>
+                                    <uuid>032c318a2ab747d2b94f5ac137b28d7c</uuid>
+                                    <expression>last(/Quantum i6/libraryTemperatureSensorValue.[{#SNMPINDEX}])&lt;&quot;{$LowTempWarn}&quot;</expression>
+                                    <name>Low Temperature Warning on Sensor {#SNMPINDEX}</name>
+                                    <priority>WARNING</priority>
+                                    <description>This trigger activates when the temperature reading from a sensor falls below the warning threshold.</description>
+                                </trigger_prototype>
+                            </trigger_prototypes>
+                        </item_prototype>
+                    </item_prototypes>
+                    <preprocessing>
+                        <step>
+                            <type>JAVASCRIPT</type>
+                            <parameters>
+                                <parameter>var results = value.split(&quot;\n&quot;); // Split input by new lines to process each line individually
+var dataArray = []; // Array to hold each JSON object
+var seenIndices = {}; // Track seen indices to avoid duplicates
+
+for (var i = 0; i &lt; results.length; i++) {
+    var parts = results[i].split(&quot; = &quot;); // Split each line into OID and value parts
+    if (parts.length &gt;= 2) {
+        var oid = parts[0].trim(); // Extract the OID part and trim any whitespace
+        var statusText = parts[1].trim(); // Extract the status text
+
+        // Extract the index from the OID
+        var match = oid.match(/\.(\d+)$/); // Match the index at the end of the OID
+        if (match) {
+            var index = match[1]; // Captured index
+
+            // Check if this index has already been processed
+            if (seenIndices[index]) {
+                continue; // Skip if this index is already processed
+            }
+
+            // Perform the status replacement
+            var updatedStatus = statusText.replace(/\s*\(.*?\)/, &quot;_REPLACED_&quot;); // Replace status text
+
+            // Add the JSON object to the array
+            dataArray.push({
+                &quot;{#SNMPINDEX}&quot;: index, // Use the captured index as {#SNMPINDEX}
+                &quot;{#STATUS}&quot;: updatedStatus
+            });
+
+            // Mark this index as processed
+            seenIndices[index] = true;
+        }
+    }
+}
+
+// Return the array as a JSON object for Zabbix discovery
+return JSON.stringify({
+    data: dataArray
+});
+</parameter>
+                            </parameters>
+                        </step>
+                    </preprocessing>
+                </discovery_rule>
+            </discovery_rules>
+            <macros>
+                <macro>
+                    <macro>{$EXPECTEDACCESSTYPE}</macro>
+                    <value>https(1)</value>
+                    <description>Set this macro to the expected access type, such as https(1) or http(2).</description>
+                </macro>
+                <macro>
+                    <macro>{$HIGHHUMIDCRIT}</macro>
+                    <value>70</value>
+                    <description>Defines the warning for the high humidity critical alarm. Adjust if necessary for your environment.</description>
+                </macro>
+                <macro>
+                    <macro>{$HIGHHUMIDWARN}</macro>
+                    <value>60</value>
+                    <description>Defines the warning for the high humidity warning. Adjust if necessary for your environment.</description>
+                </macro>
+                <macro>
+                    <macro>{$HIGHPOWERCONSUMPTIONTHRESHOLD}</macro>
+                    <value>300</value>
+                    <description>Defines the maximum acceptable power consumption in watts, e.g., 300W. Adjust if necessary for your environment.</description>
+                </macro>
+                <macro>
+                    <macro>{$HIGHTEMPCRIT}</macro>
+                    <description>Defines the warning for the high temperature critical alarm. Adjust if necessary for your environment.</description>
+                </macro>
+                <macro>
+                    <macro>{$HIGHTEMPWARN}</macro>
+                    <value>30</value>
+                    <description>Defines the warning for the high temperature warning. Adjust if necessary for your environment.</description>
+                </macro>
+                <macro>
+                    <macro>{$HIGHVOLTAGECRIT}</macro>
+                    <value>250</value>
+                    <description>Defines the critical threshold for high voltage. Adjust if necessary for your environment.</description>
+                </macro>
+                <macro>
+                    <macro>{$HIGHVOLTAGEWARN}</macro>
+                    <value>240</value>
+                    <description>Defines the warning threshold for high voltage. Adjust if necessary for your environment.</description>
+                </macro>
+                <macro>
+                    <macro>{$HUMIDDEVIATION}</macro>
+                    <value>10%</value>
+                    <description>Defines when the current humidity level deviates significantly from the historical average, which can be an indicator of an environmental issue. Adjust if necessary for your environment.</description>
+                </macro>
+                <macro>
+                    <macro>{$LOWHUMIDCRIT}</macro>
+                    <value>30</value>
+                    <description>Defines the warning for the low humidity critical alarm. Adjust if necessary for your environment.</description>
+                </macro>
+                <macro>
+                    <macro>{$LOWHUMIDWARN}</macro>
+                    <value>40</value>
+                    <description>Defines the warning for the low humidity warning. Adjust if necessary for your environment.</description>
+                </macro>
+                <macro>
+                    <macro>{$LOWPOWEROUTPUTTHRESHOLD}</macro>
+                    <value>100</value>
+                    <description>Defines the minimum acceptable power consumption in watts, e.g., 100W. Adjust if necessary for your environment.</description>
+                </macro>
+                <macro>
+                    <macro>{$LOWTEMPCRIT}</macro>
+                    <value>10</value>
+                    <description>Defines the warning for the low temperature critical alarm. Adjust if necessary for your environment.</description>
+                </macro>
+                <macro>
+                    <macro>{$LOWTEMPWARN}</macro>
+                    <value>15</value>
+                    <description>Defines the warning for the low temperature warning. Adjust if necessary for your environment.</description>
+                </macro>
+                <macro>
+                    <macro>{$LOWVOLTAGECRIT}</macro>
+                    <value>200</value>
+                    <description>Defines the critical threshold for low voltage. Adjust if necessary for your environment.</description>
+                </macro>
+                <macro>
+                    <macro>{$LOWVOLTAGEWARN}</macro>
+                    <value>210</value>
+                    <description>Defines the warning threshold for low voltage. Adjust if necessary for your environment.</description>
+                </macro>
+                <macro>
+                    <macro>{$MAXDRIVELOADS}</macro>
+                    <value>100000</value>
+                    <description>Defines the maximum acceptable load count for a physical drive. Adjust if necessary for your environment.</description>
+                </macro>
+                <macro>
+                    <macro>{$MINCLEANINGTAPECOUNT}</macro>
+                    <description>Defines the minimum acceptable number of cleaning tapes. Adjust if necessary for your environment.</description>
+                </macro>
+                <macro>
+                    <macro>{$MINPSCOUNT}</macro>
+                    <value>2</value>
+                    <description>Defines the minimum acceptable number of power supplies. Adjust if necessary for your environment.</description>
+                </macro>
+                <macro>
+                    <macro>{$RAPIDHUMIDCHANGE}</macro>
+                    <value>10%</value>
+                    <description>Defines the % change allowed within a 5 minute period before alerting. Adjust if necessary for your environment.</description>
+                </macro>
+                <macro>
+                    <macro>{$SNMP_PORT}</macro>
+                    <value>161</value>
+                </macro>
+            </macros>
+            <valuemaps>
+                <valuemap>
+                    <uuid>0bd358e2880e48cdab03cb6a2a725031</uuid>
+                    <name>Boolean</name>
+                    <mappings>
+                        <mapping>
+                            <value>0</value>
+                            <newvalue>false</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>1</value>
+                            <newvalue>true</newvalue>
+                        </mapping>
+                    </mappings>
+                </valuemap>
+                <valuemap>
+                    <uuid>29172a6c8fdd403ba11b91b884362894</uuid>
+                    <name>CleaningStatus</name>
+                    <mappings>
+                        <mapping>
+                            <value>0</value>
+                            <newvalue>unknown</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>1</value>
+                            <newvalue>notNeeded</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>2</value>
+                            <newvalue>recommended</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>3</value>
+                            <newvalue>required</newvalue>
+                        </mapping>
+                    </mappings>
+                </valuemap>
+                <valuemap>
+                    <uuid>2121a68eae15404eb6fcaa5fc9d66f79</uuid>
+                    <name>ControlPathType</name>
+                    <mappings>
+                        <mapping>
+                            <value>0</value>
+                            <newvalue>unknown</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>1</value>
+                            <newvalue>none</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>2</value>
+                            <newvalue>cpActive</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>3</value>
+                            <newvalue>cpStandby</newvalue>
+                        </mapping>
+                    </mappings>
+                </valuemap>
+                <valuemap>
+                    <uuid>a86f3ef4b8cd4a519bacd894d05421ef</uuid>
+                    <name>DeviceMode</name>
+                    <mappings>
+                        <mapping>
+                            <value>0</value>
+                            <newvalue>unknown</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>1</value>
+                            <newvalue>online</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>2</value>
+                            <newvalue>offline</newvalue>
+                        </mapping>
+                    </mappings>
+                </valuemap>
+                <valuemap>
+                    <uuid>fa12d72150b84bec9abb308e96f3cc4a</uuid>
+                    <name>DeviceState</name>
+                    <mappings>
+                        <mapping>
+                            <value>0</value>
+                            <newvalue>unknown</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>1</value>
+                            <newvalue>variedOn</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>2</value>
+                            <newvalue>variedOff</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>3</value>
+                            <newvalue>notReady</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>4</value>
+                            <newvalue>notInstalled</newvalue>
+                        </mapping>
+                    </mappings>
+                </valuemap>
+                <valuemap>
+                    <uuid>9b0dfa6468144313967238d1d59f0972</uuid>
+                    <name>DisabledEnabled</name>
+                    <mappings>
+                        <mapping>
+                            <value>0</value>
+                            <newvalue>disabled</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>1</value>
+                            <newvalue>enabled</newvalue>
+                        </mapping>
+                    </mappings>
+                </valuemap>
+                <valuemap>
+                    <uuid>8d4c6443c4244f2489853fa0e1904d92</uuid>
+                    <name>IEAreaStatus</name>
+                    <mappings>
+                        <mapping>
+                            <value>0</value>
+                            <newvalue>unknown</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>1</value>
+                            <newvalue>insertedClosed</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>2</value>
+                            <newvalue>ejectedOpen</newvalue>
+                        </mapping>
+                    </mappings>
+                </valuemap>
+                <valuemap>
+                    <uuid>bf989f06b6d84de0b6d0f4d8ad1b26b1</uuid>
+                    <name>InterfaceMethod</name>
+                    <mappings>
+                        <mapping>
+                            <value>0</value>
+                            <newvalue>unknown</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>1</value>
+                            <newvalue>noInterface</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>2</value>
+                            <newvalue>viaControlPathDrive</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>3</value>
+                            <newvalue>viaConnectionBlade</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>4</value>
+                            <newvalue>viaControllerBlade</newvalue>
+                        </mapping>
+                    </mappings>
+                </valuemap>
+                <valuemap>
+                    <uuid>baa936fe995f4b248bdd7f3b36b245dd</uuid>
+                    <name>InterfaceType</name>
+                    <mappings>
+                        <mapping>
+                            <value>0</value>
+                            <newvalue>unknown</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>1</value>
+                            <newvalue>scsi</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>2</value>
+                            <newvalue>fc</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>3</value>
+                            <newvalue>sas</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>4</value>
+                            <newvalue>iscsi</newvalue>
+                        </mapping>
+                    </mappings>
+                </valuemap>
+                <valuemap>
+                    <uuid>312f9ce88a1445d7b163d48182e74fc7</uuid>
+                    <name>LibraryMagazineStatus</name>
+                    <mappings>
+                        <mapping>
+                            <value>0</value>
+                            <newvalue>unknown</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>1</value>
+                            <newvalue>allPresent</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>2</value>
+                            <newvalue>notAllPresent</newvalue>
+                        </mapping>
+                    </mappings>
+                </valuemap>
+                <valuemap>
+                    <uuid>b7635a9f960d49c8883139560eefe4b8</uuid>
+                    <name>LibraryState</name>
+                    <mappings>
+                        <mapping>
+                            <value>0</value>
+                            <newvalue>unknown</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>1</value>
+                            <newvalue>ready</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>2</value>
+                            <newvalue>notReady</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>3</value>
+                            <newvalue>becomingReady</newvalue>
+                        </mapping>
+                    </mappings>
+                </valuemap>
+                <valuemap>
+                    <uuid>9643757791304929b6acaa903aff0f1e</uuid>
+                    <name>NetworkAccessType</name>
+                    <mappings>
+                        <mapping>
+                            <value>0</value>
+                            <newvalue>unknown</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>1</value>
+                            <newvalue>https</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>2</value>
+                            <newvalue>http</newvalue>
+                        </mapping>
+                    </mappings>
+                </valuemap>
+                <valuemap>
+                    <uuid>6ec69d13e2b34eddafb003ae45c4418b</uuid>
+                    <name>NetworkProtocol</name>
+                    <mappings>
+                        <mapping>
+                            <value>0</value>
+                            <newvalue>unknown</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>1</value>
+                            <newvalue>ipv4</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>2</value>
+                            <newvalue>ipv6</newvalue>
+                        </mapping>
+                    </mappings>
+                </valuemap>
+                <valuemap>
+                    <uuid>b4c0f4d5461b46778f4ed78b2cdf1510</uuid>
+                    <name>PartitionType</name>
+                    <mappings>
+                        <mapping>
+                            <value>0</value>
+                            <newvalue>unknown</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>1</value>
+                            <newvalue>standard</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>2</value>
+                            <newvalue>libraryManaged</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>3</value>
+                            <newvalue>libraryManagedEDLM</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>4</value>
+                            <newvalue>libraryManagedAMP</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>5</value>
+                            <newvalue>libraryManagedVault</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>6</value>
+                            <newvalue>ltfs</newvalue>
+                        </mapping>
+                    </mappings>
+                </valuemap>
+                <valuemap>
+                    <uuid>84fe925fbf2a4d3ea84dc217d92d8449</uuid>
+                    <name>PSStatus</name>
+                    <mappings>
+                        <mapping>
+                            <value>0</value>
+                            <newvalue>unknown</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>1</value>
+                            <newvalue>good</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>2</value>
+                            <newvalue>failed</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>3</value>
+                            <newvalue>missing</newvalue>
+                        </mapping>
+                    </mappings>
+                </valuemap>
+                <valuemap>
+                    <uuid>583818c9720d434692a5a55cf44aaaa8</uuid>
+                    <name>RASSubSystemStatus</name>
+                    <mappings>
+                        <mapping>
+                            <value>0</value>
+                            <newvalue>unknown</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>1</value>
+                            <newvalue>redFailure</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>2</value>
+                            <newvalue>orangeDegraded</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>3</value>
+                            <newvalue>yellowWarning</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>4</value>
+                            <newvalue>blueAttention</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>5</value>
+                            <newvalue>greenInformation</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>6</value>
+                            <newvalue>greenGood</newvalue>
+                        </mapping>
+                    </mappings>
+                </valuemap>
+                <valuemap>
+                    <uuid>c99beece08b14ab4b8276ba568b37c0a</uuid>
+                    <name>RASTicketSeverity</name>
+                    <mappings>
+                        <mapping>
+                            <value>0</value>
+                            <newvalue>unknown</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>1</value>
+                            <newvalue>critical</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>2</value>
+                            <newvalue>degraded</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>3</value>
+                            <newvalue>warning</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>4</value>
+                            <newvalue>attention</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>5</value>
+                            <newvalue>informational</newvalue>
+                        </mapping>
+                    </mappings>
+                </valuemap>
+                <valuemap>
+                    <uuid>292dc59289764b6c86ee30c904a82674</uuid>
+                    <name>RASTicketSubSystem</name>
+                    <mappings>
+                        <mapping>
+                            <value>0</value>
+                            <newvalue>unknown</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>1</value>
+                            <newvalue>library</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>2</value>
+                            <newvalue>drive</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>3</value>
+                            <newvalue>media</newvalue>
+                        </mapping>
+                    </mappings>
+                </valuemap>
+                <valuemap>
+                    <uuid>62e58dc1a86d4c1ca247b2312a1a9e7c</uuid>
+                    <name>RedundancyConfiguration</name>
+                    <mappings>
+                        <mapping>
+                            <value>0</value>
+                            <newvalue>unknown</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>1</value>
+                            <newvalue>noRedundancy</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>2</value>
+                            <newvalue>multiPath</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>3</value>
+                            <newvalue>basicPathFailover</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>4</value>
+                            <newvalue>advancedPathFailover</newvalue>
+                        </mapping>
+                    </mappings>
+                </valuemap>
+                <valuemap>
+                    <uuid>f873bcdfeb3c4afe8f5d68e439f89d60</uuid>
+                    <name>SensorStatus</name>
+                    <mappings>
+                        <mapping>
+                            <value>0</value>
+                            <newvalue>unknown</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>1</value>
+                            <newvalue>normal</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>2</value>
+                            <newvalue>warning</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>3</value>
+                            <newvalue>critical</newvalue>
+                        </mapping>
+                    </mappings>
+                </valuemap>
+                <valuemap>
+                    <uuid>e90460b8f0c74aeca9be444c59e4876b</uuid>
+                    <name>UserLogoutType</name>
+                    <mappings>
+                        <mapping>
+                            <value>0</value>
+                            <newvalue>unknown</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>1</value>
+                            <newvalue>normal</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>2</value>
+                            <newvalue>timeout</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>3</value>
+                            <newvalue>forced</newvalue>
+                        </mapping>
+                    </mappings>
+                </valuemap>
+                <valuemap>
+                    <uuid>2e5410aabe554394bcb825aa1258c9f7</uuid>
+                    <name>VoltageType</name>
+                    <mappings>
+                        <mapping>
+                            <value>0</value>
+                            <newvalue>unknown</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>1</value>
+                            <newvalue>ac</newvalue>
+                        </mapping>
+                        <mapping>
+                            <value>2</value>
+                            <newvalue>dc</newvalue>
+                        </mapping>
+                    </mappings>
+                </valuemap>
+            </valuemaps>
+        </template>
+    </templates>
+</zabbix_export>
