@@ -172,7 +172,7 @@ If you would like to contribute to this project, please fork the repository and 
 
 ## License
 
-This project is licensed under the GNU General Public License v3.0. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the GNU General Public License v3.0. See the [LICENSE](https://github.com/WhiskeySmashPaul/Zabbix/blob/main/LICENSE) file for details.
 
 ## Contact
 
